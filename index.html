@@ -5,30 +5,27 @@
 <!--[if gt IE 8]><!--> <html lang="en" ng-csp="" ng-app="boknaden"> <!--<![endif]-->
 
 	<head>
-
-		<base href="/">
-		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>* Boknaden</title>
-		<meta name="HandheldFriendly" content="True">
-		<meta name="MobileOptimized" content="320">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-		<!--[if IE]>
-			<link rel="shortcut icon" href="favicon.ico">
-		<![endif]-->
-		<meta name="msapplication-TileColor" content="#f01d4f">
+        <base href="/">
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>* Boknaden</title>
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--[if IE]>
+        	<link rel="shortcut icon" href="favicon.ico">
+        <![endif]-->
+        <meta name="msapplication-TileColor" content="#ff9900">
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="assets/styles/paper.bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/styles/style.css" />
+        <link rel="stylesheet" type="text/css" href="assets/styles/style.css" />
 	</head>
 
 	<body class="main-wrapper">
         <div bn-header></div>
 		<div data-ng-view="" class="container fade-view"></div>
         <div bn-footer></div>
-
 	</body>
 
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -44,5 +41,4 @@
     <script type="text/javascript" src="app/components/bookstore/new/newBook.js"></script>
     <script type="text/javascript" src="app/components/bookstore/bookstore-filters/filters.js"></script>
     <script type="text/javascript" src="app/components/loginRegister/loginRegister.js"></script>
-
 </html>
