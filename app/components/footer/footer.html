@@ -1,0 +1,12 @@
+<div class="site-footer">
+    <div ng-repeat="(key, object) in objects" class="about-popup fade" ng-if="object.isActive">
+        <p class="btn-close" ng-click="toggle(key)">&times;</p>
+        <h1>{{ object.title }}</h1>
+        <p>{{ object.article }}</p>
+    </div>
+    <p class="copyright">Copyright &copy; Boknaden, 2017</p>
+    <ul class="site-nav">
+        <li ng-repeat="(key, object) in objects"><a ng-click="toggle(key)">{{ object.title }}</a></li>
+        <li ng-if="isAuthenticated()"><a ng-click="logout()">Logg ut</a></li>
+    </ul>
+</div>
