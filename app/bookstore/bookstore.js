@@ -3,9 +3,9 @@
 
     var app = angular.module('boknaden')
 
-    app.controller('BookstoreCtrl', ['$scope', BookstoreCtrl])
+    app.controller('BookstoreCtrl', ['$scope', 'store', '$location', BookstoreCtrl])
 
-    function BookstoreCtrl ($scope) {
+    function BookstoreCtrl ($scope, store, $location) {
         var defBooks = [
             {
                 bookId: 1,
@@ -29,6 +29,14 @@
                 seller: "Fagbokforlaget",
             },
         ]
+
+        function isAuthenticated () {
+            return store.get('token')
+        }
+
+        if (!isAuthenticated()) {
+            $location.path('/')
+        }
 
         function calculateCustomerPrice (price) {
             $scope.priceCalculated = (price * 1.1).toFixed(2)
