@@ -6,6 +6,7 @@ body {
     background-color: #FAFAFA;
     overflow-y: scroll;
     font-family: 'Roboto', 'Open Sans', sans-serif;
+    background: url('../images/crisp_paper_ruffles.png') repeat;
     color: #19191F;
 }
 
@@ -20,7 +21,7 @@ body {
     left: 0;
     right: 0;
     top: 0;
-    background: #F90;
+    background: #96124f;
     padding-bottom: 10px;
     box-shadow: 0px 1px 1px 0px #e2e2e2;
 }
@@ -60,17 +61,12 @@ body {
 }
 
 .site-footer {
-    opacity: .85;
     z-index: 10;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-
     padding: 20px 0 20px 20px;
-
-    background: #fff;
-    box-shadow: 0px -1px 1px 0px #e2e2e2;
 }
 .site-footer .copyright {
     display: inline-block;
@@ -91,19 +87,46 @@ body {
 }
 
 .login-register-component {
-    margin: 140px auto 0 auto;
+    margin: 140px auto 60px auto;
+}
+
+.login-register-component > div {
+    background: #fafafa;
+    padding: 0;
+}
+
+.login-register-component a.nav-link {
+    font-size: 20px;
+}
+
+.nav-item.active {
+    background: #96124f;
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:active {
+    color: #fafafa;
+    -webkit-box-shadow: inset 0 -2px 0 #96124f;
+    box-shadow: inset 0 -2px 0 #96124f;
+}
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus:hover {
+    color: #fafafa;
+}
+.nav-tabs>li>a:focus,
+.nav-tabs>li>a:hover,
+.nav-tabs>li>a:active {
+    color: #96124f;
+    -webkit-box-shadow: inset 0 -2px 0 #96124f;
+    box-shadow: inset 0 -2px 0 #96124f;
 }
 
 .login-component, .register-component {
-    box-shadow: 1px 1px 0px 1px #e2e2e2;
-    max-width: 600px;
-    margin: 0 auto;
-    background: #f1f1f1;
-    border: 1px solid #f1f1f1;
+    margin: 20px auto 0 auto;
 }
 .login-component .social, .register-component .social {
     text-align: center;
-    border-bottom: 1px solid #e2e2e2;
 }
 .login-component .social button, .register-component .social button {
     color: #3b5998;
@@ -117,7 +140,7 @@ body {
 .login-component .login-form,
 .register-component .register-form {
     background: #fff;
-    padding: 15px 10px 20px 10px;
+    padding: 20px;
 }
 .login-component .login-form p,
 .register-component .register-form p {
@@ -140,7 +163,6 @@ body {
     background: #fbfbfb;
     border: 1px solid #e2e2e2;
     min-height: 155px;
-    min-width: 100%;
 }
 .books .book h3,
 .books .book p {
@@ -206,7 +228,7 @@ body {
 .bn-input {
     border-radius: 0;
     box-shadow: none;
-    margin: 10px 0;
+    padding: 10px 0;
 }
 
 .fade {
