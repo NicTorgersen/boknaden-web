@@ -49,9 +49,68 @@ body {
 .site-header .site-title img {
     height: 35px;
     vertical-align: baseline;
+    margin-right: -9px;
 }
 .site-header .site-title .fat {
     font-weight: 600;
+    margin-left: 2px;
+}
+
+
+.main-navigation {
+    border-top: 1px solid #820d43;
+    top: 100px;
+    bottom: 0;
+    left: -200px;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    background: #96124f;
+    z-index: 11;
+    -webkit-transition: left .4s ease;
+    transition: left .4s ease;
+}
+.main-navigation.show {
+    left: 0;
+}
+.main-navigation .hamburger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 50px 30px 15px 15px;
+}
+.main-navigation .hamburger i {
+    font-size: 35px;
+    color: #FAFAFA;
+}
+.main-navigation ul {
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+}
+.main-navigation ul li {
+    margin: 0;
+    list-style: none;
+    border-bottom: 1px solid #820d43;
+    color: #fff;
+    font-size: 24px;
+    text-align: left;
+}
+.main-navigation ul li:hover {
+    background: rgba(0,0,0,0.1);
+}
+.main-navigation ul li a {
+    padding: 20px;
+    color: #FAFAFA;
+    display: block;
+}
+.main-navigation ul li a:hover,
+.main-navigation ul li a:active,
+.main-navigation ul li a:focus {
+    text-decoration: none;
+}
+.main-navigation ul li a:focus {
+    background: rgba(0,0,0,0.1);
 }
 
 .book-subtitle {
@@ -61,7 +120,7 @@ body {
 }
 
 .site-footer {
-    z-index: 10;
+    z-index: 12;
     position: fixed;
     bottom: 0;
     left: 0;

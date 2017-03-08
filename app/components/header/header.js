@@ -13,7 +13,7 @@
                 'bnLogo': '=?',
             },
             link: function (scope) {
-                scope.bnLogo = scope.bnLogo || "assets/images/logo.svg"
+                scope.bnLogo = scope.bnLogo || "assets/images/logo-2.svg"
             }
         }
     }
