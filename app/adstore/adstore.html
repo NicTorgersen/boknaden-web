@@ -2,6 +2,12 @@
 <div class="flyerstore">
     <div class="flyers">
         <div class="row">
+            <div class="col-md-12">
+                <h3 class="latest-flyers">Siste annonser</h3>
+                <button type="button" class="btn btn-primary btn-sm btn-new-ad"><i class="fa fa-plus"></i> ny</button>
+            </div>
+        </div>
+        <div class="row">
             <div ng-repeat="flyer in flyers" class="col-lg-3 col-md-4 col-sm-5 flyer-container">
                 <header class="text-center">
                     <ks-swiper-container initial-slide="0" show-nav-buttons="true" slides-per-view="1" space-between="0" override-parameters="{'centeredSlides': ((flyer.aditems.length>1) ? false : true)}">
@@ -16,7 +22,7 @@
                     </p>
                     <p><em>{{ flyer.course.coursename }}</em></p>
                     <h3>{{ flyer.adname }}</h3>
-                    <p>{{ flyer.user.username }} <span class="pull-right">kr {{ calculateTotalPrice(flyer.aditems) }}</span></p>
+                    <p>{{ flyer.user.username }} <span class="pull-right">totalt kr {{ calculateTotalPrice(flyer.aditems) }}</span></p>
                 </div>
             </div>
         </div>

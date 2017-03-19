@@ -66,8 +66,8 @@ body {
     height: 100%;
     background: #96124f;
     z-index: 13;
-    -webkit-transition: left .3s ease;
-    transition: left .3s ease;
+    -webkit-transition: left .3s ease-in-out;
+    transition: left .3s ease-in-out;
 }
 .main-navigation.show {
     left: 0;
@@ -212,6 +212,16 @@ body {
 .flyerstore {
     margin-top: 115px;
     margin-bottom: 70px;
+}
+
+.latest-flyers {
+    margin-bottom: 16px;
+    border-bottom: 1px solid #fafafa;
+    display: inline-block;
+}
+.btn-new-ad {
+    margin-left: 20px;
+    margin-top: -15px;
 }
 
 .flyers .flyer-container {
