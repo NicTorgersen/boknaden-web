@@ -20,16 +20,20 @@
         <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="assets/styles/paper.bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/angular-growl-v2/build/angular-growl.min.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/swiper/dist/css/swiper.min.css">
         <link rel="stylesheet" type="text/css" href="assets/styles/style.css" />
     </head>
 
     <body class="main-wrapper">
+        <div growl></div>
         <div bn-header></div>
-        <div bn-navigation></div>
     	<div data-ng-view="" class="container-fluid fade-view"></div>
         <div bn-footer></div>
     </body>
 
+    <script type="text/javascript" src="bower_components/moment/min/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="bower_components/swiper/dist/js/swiper.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
@@ -37,12 +41,20 @@
     <script type="text/javascript" src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-growl-v2/build/angular-growl.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-moment/angular-moment.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-moment/angular-moment.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-swiper/dist/angular-swiper.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
-    <script type="text/javascript" src="app/home/home.js"></script>
-    <script type="text/javascript" src="app/bookstore/bookstore.js"></script>
+    <script type="text/javascript" src="app/config.js"></script>
+    <script type="text/javascript" src="app/components/services/authenticate.js"></script>
+    <script type="text/javascript" src="app/components/services/user.js"></script>
+    <script type="text/javascript" src="app/components/services/ad.js"></script>
+    <script type="text/javascript" src="app/login/login.js"></script>
+    <script type="text/javascript" src="app/adstore/adstore.js"></script>
     <script type="text/javascript" src="app/components/header/header.js"></script>
     <script type="text/javascript" src="app/components/navigation/navigation.js"></script>
     <script type="text/javascript" src="app/components/footer/footer.js"></script>
     <script type="text/javascript" src="app/components/bookstore/bookstore-filters/filters.js"></script>
-    <script type="text/javascript" src="app/components/loginRegister/loginRegister.js"></script>
 </html>

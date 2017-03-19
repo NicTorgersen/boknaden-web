@@ -1,77 +1,85 @@
-;(function() {
+(function() {
 
-  angular
-    .module('boknaden', [
-      'ngRoute',
-      'ngAnimate',
-      'angular-storage',
-      'ui.bootstrap',
-    ])
-    .config(config);
+    angular
+        .module('boknaden', [
+          'ngRoute',
+          'ngAnimate',
+          'angular-storage',
+          'ui.bootstrap',
+          'angular-jwt',
+          'angular-growl',
+          'angularMoment',
+          'ksSwiper',
+        ])
+        .config(config)
 
-  config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider'];
+    config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider', 'growlProvider']
 
-  function config($routeProvider, $locationProvider, $httpProvider, $compileProvider) {
+    function config($routeProvider, $locationProvider, $httpProvider, $compileProvider, $growlProvider) {
 
-    $locationProvider.html5Mode(false);
+        $growlProvider
+            .globalTimeToLive(2500)
+            .globalDisableIcons(true)
+            .globalDisableCountDown(true)
+            .globalPosition('bottom-right')
 
-    // routes
-    $routeProvider
-      .when('/', {
-        templateUrl: 'app/home/home.html',
-        controller: 'HomeCtrl',
-      })
-      .when('/bookstore', {
-          templateUrl: 'app/bookstore/bookstore.html',
-          controller: 'BookstoreCtrl',
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+        $locationProvider.html5Mode(false)
 
-    $httpProvider.interceptors.push('authInterceptor');
+        // routes
+        $routeProvider
+            .when('/login', {
+                templateUrl: 'app/login/login.html',
+                controller: 'LoginCtrl',
+            })
+            .when('/store', {
+                templateUrl: 'app/adstore/adstore.html',
+                controller: 'AdStoreCtrl',
+            })
+            .otherwise({
+                redirectTo: '/store'
+            })
 
-  }
+        $httpProvider.interceptors.push('authInterceptor')
 
-  angular
-    .module('boknaden')
-    .factory('authInterceptor', authInterceptor);
+    }
 
-  authInterceptor.$inject = ['$rootScope', '$q', '$location'];
+    angular
+        .module('boknaden')
+        .factory('authInterceptor', authInterceptor)
 
-  function authInterceptor($rootScope, $q, $location) {
+    authInterceptor.$inject = ['$rootScope', '$q', '$location']
 
-    return {
+    function authInterceptor($rootScope, $q, $location) {
 
-      // intercept every request
-      request: function(config) {
-        config.headers = config.headers || {};
-        return config;
-      },
+        return {
 
-      // Catch 404 errors
-      responseError: function(response) {
-        if (response.status === 404) {
-          $location.path('/');
-          return $q.reject(response);
-        } else {
-          return $q.reject(response);
+            // intercept every request
+            request: function(config) {
+                config.headers = config.headers || {}
+                return config
+            },
+
+            // Catch 404 errors
+            responseError: function(response) {
+                if (response.status === 404) {
+                    $location.path('/')
+                    return $q.reject(response)
+                } else {
+                    return $q.reject(response)
+                }
+            }
         }
-      }
-    };
-  }
+    }
 
-  angular
-    .module('boknaden')
-    .run(run);
+    angular
+        .module('boknaden')
+        .run(run)
 
-  run.$inject = ['$rootScope', '$location'];
+    run.$inject = ['$rootScope', '$location', 'amMoment']
 
-  function run($rootScope, $location) {
-
-    // run on page load
-
-  }
+    function run($rootScope, $location, amMoment) {
+        amMoment.changeLocale('nb')
+    }
 
 
-})();
+})()

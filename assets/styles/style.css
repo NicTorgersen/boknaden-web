@@ -6,7 +6,7 @@ body {
     background-color: #FAFAFA;
     overflow-y: scroll;
     font-family: 'Roboto', 'Open Sans', sans-serif;
-    background: url('../images/crisp_paper_ruffles.png') repeat;
+    /* background: url('../images/crisp_paper_ruffles.png') repeat; */
     color: #19191F;
 }
 
@@ -23,7 +23,6 @@ body {
     top: 0;
     background: #96124f;
     padding-bottom: 10px;
-    box-shadow: 0px 1px 1px 0px #e2e2e2;
 }
 .site-header .site-title {
     font-family: 'Roboto', 'Open Sans', sans-serif;
@@ -49,7 +48,7 @@ body {
 .site-header .site-title img {
     height: 35px;
     vertical-align: baseline;
-    margin-right: -9px;
+    margin-right: -8px;
 }
 .site-header .site-title .fat {
     font-weight: 600;
@@ -66,7 +65,7 @@ body {
     width: 200px;
     height: 100%;
     background: #96124f;
-    z-index: 11;
+    z-index: 13;
     -webkit-transition: left .4s ease;
     transition: left .4s ease;
 }
@@ -113,18 +112,11 @@ body {
     background: rgba(0,0,0,0.1);
 }
 
-.book-subtitle {
-    color: #000;
-    font-weight: lighter;
-    font-style: italic;
-}
-
 .site-footer {
     z-index: 12;
     position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
     padding: 20px 0 20px 20px;
 }
 .site-footer .copyright {
@@ -146,11 +138,10 @@ body {
 }
 
 .login-register-component {
-    margin: 140px auto 60px auto;
+    margin: 100px auto 60px auto;
 }
 
 .login-register-component > div {
-    background: #fafafa;
     padding: 0;
 }
 
@@ -160,6 +151,10 @@ body {
 
 .nav-item.active {
     background: #96124f;
+}
+.nav-tabs>li>a {
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 .nav-tabs>li.active>a,
 .nav-tabs>li.active>a:focus,
@@ -211,61 +206,39 @@ body {
     margin: 0;
 }
 
-.books {
-    margin-top: 140px;
+.flyerstore {
+    margin-top: 115px;
     margin-bottom: 70px;
 }
-.books .book {
-    margin: 0;
-    padding: 10px 20px;
-    display: inline-block;
-    background: #fbfbfb;
-    border: 1px solid #e2e2e2;
-    min-height: 155px;
+
+.flyers .flyer-container {
+    background: #f0f0f0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
 }
-.books .book h3,
-.books .book p {
+.flyers .flyer-container .flyer-content {
+    border-left: 3px solid #e0e0e0;
+    border-right: 3px solid #e0e0e0;
+    padding: 5px 15px 15px 15px;
+}
+.flyers .flyer-container .flyer-content:hover {
+    border-left: 3px solid #d2d2d2;
+    border-right: 3px solid #d2d2d2;
+    box-shadow: 0px 1px 0px #d2d2d2;
+    cursor: pointer;
+}
+.flyers .flyer-container h3 {
     margin: 10px 0;
 }
-.books .book .book-info {
-    border-right: 1px solid #e2e2e2;
+.flyers .flyer-container p {
+    margin: 10px 0;
 }
 
-.newBook-button {
-    position: fixed;
-    top: 80px;
-    left: 10px;
-    z-index: 11;
-}
-.newBook-button button {
-    line-height: 1em;
-}
-.newBook-editor {
-    position: absolute;
-    opacity: 0;
-    z-index: 10;
-    top: -583px;
-    width: 600px;
-    left: 50%;
-    margin-left: -300px;
-    background: #f1f1f1;
-    border: 1px solid #f1f1f1;
-    -webkit-transition: all .4s ease;
-    transition: all .4s ease;
-}
-.newBook-editor.editor-visible {
-    top: 129px;
-    opacity: 1;
-    margin-bottom: 54px;
-}
-.newBook-editor .newBook-form {
-    padding: 20px;
-    background: #fff;
-}
-.newBook-editor h3 {
-    margin: 0;
-    padding: 20px 10px;
-    border-bottom: 1px solid #e1e1e2;
+.flyers .flyer-container .flyer-date .text-muted {
+    color: #888;
 }
 
 .btn-round.btn-lg {
