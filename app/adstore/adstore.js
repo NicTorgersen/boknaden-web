@@ -7,12 +7,13 @@
             '$scope',
             'store',
             '$location',
+            'growl',
             'AdService',
             'AuthService',
             AdStoreCtrl
         ])
 
-    function AdStoreCtrl ($scope, store, $location, AdService, AuthService) {
+    function AdStoreCtrl ($scope, store, $location, growl, AdService, AuthService) {
         $scope.flyers = []
 
         $scope.isAuthenticated = AuthService.isAuthenticated()
@@ -20,6 +21,8 @@
         AdService.getAll().then(function (res) {
             console.log(res)
             $scope.flyers = res.data.ads
+        }, function (err) {
+            growl.error(err, {title: 'Error'})
         })
 
         $scope.calculateTotalPrice = function (aditems) {

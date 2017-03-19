@@ -60,14 +60,14 @@ body {
     border-top: 1px solid #820d43;
     top: 100px;
     bottom: 0;
-    left: -200px;
+    left: -300px;
     position: absolute;
-    width: 200px;
+    width: 300px;
     height: 100%;
     background: #96124f;
     z-index: 13;
-    -webkit-transition: left .4s ease;
-    transition: left .4s ease;
+    -webkit-transition: left .3s ease;
+    transition: left .3s ease;
 }
 .main-navigation.show {
     left: 0;
@@ -77,6 +77,9 @@ body {
     top: 0;
     left: 0;
     padding: 50px 30px 15px 15px;
+}
+.main-navigation .hamburger:hover {
+    cursor: pointer;
 }
 .main-navigation .hamburger i {
     font-size: 35px;
@@ -313,3 +316,12 @@ body {
     max-height: 0;
     margin: 0!important;
 }
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'><path%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%2396124f'%2F><%2Fsvg>");
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'><path%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%2396124f'%2F><%2Fsvg>");
+}
+/*
+
+*/
