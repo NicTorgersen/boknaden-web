@@ -22,11 +22,11 @@
                     </p>
                     <div ng-show="flyer.selectedAdItem.active">
                         <h3>{{ flyer.selectedAdItem.adItem.text }}</h3>
-                        <p>{{ flyer.user.username }} <span class="pull-right">kr {{ flyer.selectedAdItem.adItem.price }}</span></p>
+                        <p>{{ flyer.user.username }} <span class="pull-right item-price">kr <strong>{{ flyer.selectedAdItem.adItem.price }}</strong></span></p>
                     </div>
                     <div ng-hide="flyer.selectedAdItem.active">
                         <h3 >{{ flyer.adname }}</h3>
-                        <p>{{ flyer.user.username }} <span class="pull-right">totalt kr {{ calculateTotalPrice(flyer.aditems) }}</span></p>
+                        <p>{{ flyer.user.username }} <span class="pull-right item-price">totalt kr <strong>{{ calculateTotalPrice(flyer.aditems) }}</strong></span></p>
                     </div>
                 </div>
             </div>

@@ -10,12 +10,14 @@
             '$location',
             'store',
             'growl',
+            'jwtHelper',
             AuthService
         ])
 
-    function AuthService(apiUrl, $http, $location, store, growl) {
+    function AuthService(apiUrl, $http, $location, store, growl, jwtHelper) {
         this.verify = verify
         this.isAuthenticated = isAuthenticated
+        this.profile = profile
         this.logout = logout
 
         function verify (username, passphrase) {
@@ -43,6 +45,19 @@
             }
 
             return false
+        }
+
+        function profile () {
+            var token   = store.get('token'),
+                profile = store.get('profile')
+
+            if (typeof profile === 'object') {
+                return profile
+            }
+
+            if (typeof token === 'string') {
+                return jwtHelper.decodeToken(token)
+            }
         }
 
         function logout () {

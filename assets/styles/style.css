@@ -67,15 +67,16 @@ body {
 .profile .profile-container {
     position: fixed;
     top: 120px;
-    right: 20px;
+    right: 10px;
     width: 200px;
     padding: 20px;
     background-color: #96124f;
+    border-radius: 3px;
 }
 .profile .profile-container-arrow {
     position: fixed;
     top: 105px;
-    right: 20px;
+    right: 18px;
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
@@ -262,7 +263,6 @@ body {
 
 .flyers .flyer-container {
     z-index: 9;
-    background: #f0f0f0;
     padding-left: 0;
     padding-right: 0;
     margin-left: 15px;
@@ -270,25 +270,31 @@ body {
     margin-bottom: 15px;
 }
 .flyers .flyer-container .flyer-content {
-    border-left: 3px solid #e0e0e0;
-    border-right: 3px solid #e0e0e0;
+    background: #2196f3;
+    color: #fff;
+    border-top: 4px solid #1769ab;
     padding: 5px 15px 15px 15px;
+    box-shadow: 0 0 2px #aaaaaa;
 }
 .flyers .flyer-container .flyer-content:hover {
-    border-left: 3px solid #d2d2d2;
-    border-right: 3px solid #d2d2d2;
-    box-shadow: 0px 1px 0px #d2d2d2;
     cursor: pointer;
 }
+.flyers .flyer-container .flyer-content .item-price {
+    margin-top: -10px;
+    padding: 10px;
+    background: #1769ab;
+}
 .flyers .flyer-container h3 {
+    color: #fff;
     margin: 10px 0;
 }
 .flyers .flyer-container p {
     margin: 10px 0;
+    font-size: 16px;
 }
 
 .flyers .flyer-container .flyer-date .text-muted {
-    color: #888;
+    color: #fff;
 }
 
 .line {
