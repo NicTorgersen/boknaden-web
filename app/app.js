@@ -35,6 +35,14 @@
                 templateUrl: 'app/adstore/adstore.html',
                 controller: 'AdStoreCtrl',
             })
+            .when('/item/new', {
+                templateUrl: 'app/item/new.html',
+                controller: 'NewItemCtrl',
+            })
+            .when('/item/:itemId', {
+                templateUrl: 'app/item/item.html',
+                controller: 'ItemCtrl',
+            })
             .otherwise({
                 redirectTo: '/store'
             })

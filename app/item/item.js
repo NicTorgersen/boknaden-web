@@ -3,7 +3,7 @@
 
     angular
         .module('boknaden')
-        .controller('AdStoreCtrl', [
+        .controller('ItemCtrl', [
             '$scope',
             'store',
             '$location',

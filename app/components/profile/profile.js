@@ -3,21 +3,25 @@
 
     angular
         .module('boknaden')
-        .directive('bnNavigation', [
+        .directive('bnProfile', [
             '$location',
             'AuthService',
-            bnNavigation
+            bnProfile
         ])
 
-    function bnNavigation ($location, AuthService) {
+    function bnProfile ($location, AuthService) {
         return {
             restrict: 'A',
-            templateUrl: 'app/components/navigation/navigation.html',
+            templateUrl: 'app/components/profile/profile.html',
             link: function (scope, element, attrs) {
                 scope.isAuthenticated = AuthService.isAuthenticated()
-                scope.showNav = false
+                scope.show = false
                 scope.go = function (path) {
                     $location.path(path)
+                }
+                scope.logout = function () {
+                    AuthService.logout()
+                    scope.go('/login')
                 }
             }
         }

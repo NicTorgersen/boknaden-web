@@ -21,7 +21,7 @@
                 return $http({
                     url: apiUrl + '/ads',
                     method: 'GET',
-                    params: {adid: parseInt(id)}
+                    params: { adid: parseInt(id) }
                 })
             }
 
@@ -31,6 +31,12 @@
             return $http({
                 url: apiUrl + '/ads',
                 method: 'GET',
+            }).then(function (res) {
+                for (var i = 0; i<res.data.ads.length; i++) {
+                    var obj = { active: false, adItem: {} }
+                    res.data.ads[i].selectedAdItem = obj
+                }
+                return res.data.ads
             })
         }
     }

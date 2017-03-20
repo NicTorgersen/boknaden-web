@@ -55,17 +55,44 @@ body {
     margin-left: 2px;
 }
 
+.profile {
+    z-index: 11;
+    position: fixed;
+}
+.profile .user {
+    top: 0;
+    right: 0;
+    padding: 50px 20px 15px 20px;
+}
+.profile .profile-container {
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    width: 200px;
+    padding: 20px;
+    background-color: #96124f;
+}
+.profile .profile-container-arrow {
+    position: fixed;
+    top: 105px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #96124f;
+}
 
 .main-navigation {
     border-top: 1px solid #820d43;
     top: 100px;
     bottom: 0;
     left: -300px;
-    position: absolute;
+    position: fixed;
     width: 300px;
     height: 100%;
     background: #96124f;
-    z-index: 13;
+    z-index: 11;
     -webkit-transition: left .3s ease-in-out;
     transition: left .3s ease-in-out;
 }
@@ -73,15 +100,21 @@ body {
     left: 0;
 }
 .main-navigation .hamburger {
-    position: fixed;
     top: 0;
     left: 0;
-    padding: 50px 30px 15px 15px;
+    padding: 50px 20px 15px 20px;
 }
-.main-navigation .hamburger:hover {
+.header-icon {
+    position: fixed;
+}
+.header-icon.active {
+    background: #881047;
+}
+.header-icon:hover {
     cursor: pointer;
+    background: #881047;
 }
-.main-navigation .hamburger i {
+.header-icon i {
     font-size: 35px;
     color: #FAFAFA;
 }
@@ -114,9 +147,12 @@ body {
 .main-navigation ul li a:focus {
     background: rgba(0,0,0,0.1);
 }
+.main-navigation ul li a i {
+    margin-right: 20px;
+}
 
 .site-footer {
-    z-index: 12;
+    z-index: 8;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -225,6 +261,7 @@ body {
 }
 
 .flyers .flyer-container {
+    z-index: 9;
     background: #f0f0f0;
     padding-left: 0;
     padding-right: 0;
@@ -252,6 +289,16 @@ body {
 
 .flyers .flyer-container .flyer-date .text-muted {
     color: #888;
+}
+
+.line {
+    border-bottom: 2px solid #820d43;
+    margin: 15px 0;
+}
+
+.btn {
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
 .btn-round.btn-lg {
@@ -289,24 +336,29 @@ body {
     z-index: 1;
 }
 .fade.ng-leave, .fade.ng-enter
-.fade-view.ng-leave, .fade-view.ng-enter {
+.fade-view.ng-leave, .fade-view.ng-enter,
+.fade-box.ng-leave, .fade-box.ng-enter {
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
 }
 .fade.ng-leave,
-.fade-view.ng-leave {
+.fade-view.ng-leave,
+.fade-box.ng-leave {
     opacity: 1;
 }
 .fade.ng-enter,
-.fade-view.ng-enter {
+.fade-view.ng-enter,
+.fade-box.ng-enter {
     opacity: 0;
 }
 .fade.ng-enter-active,
-.fade-view.ng-enter-active {
+.fade-view.ng-enter-active,
+.fade-box.ng-enter-active {
     opacity: 1;
 }
 .fade.ng-leave-active,
-.fade-view.ng-leave-active {
+.fade-view.ng-leave-active,
+.fade-box.ng-leave-active {
     opacity: 0;
 }
 

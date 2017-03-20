@@ -1,10 +1,10 @@
-<div bn-navigation isAuthenticated="isAuthenticated"></div>
+<div bn-profile></div>
 <div class="flyerstore">
     <div class="flyers">
         <div class="row">
             <div class="col-md-12">
                 <h3 class="latest-flyers">Siste annonser</h3>
-                <button type="button" class="btn btn-primary btn-sm btn-new-ad"><i class="fa fa-plus"></i> ny</button>
+                <!-- <button type="button" class="btn btn-primary btn-sm btn-new-ad"><i class="fa fa-fw fa-plus"></i> ny</button> -->
             </div>
         </div>
         <div class="row">
@@ -12,7 +12,7 @@
                 <header class="text-center">
                     <ks-swiper-container initial-slide="0" show-nav-buttons="true" slides-per-view="1" space-between="0" override-parameters="{'centeredSlides': ((flyer.aditems.length>1) ? false : true)}">
                         <ks-swiper-slide class="swiper-slide" ng-repeat="s in flyer.aditems">
-                            <img height="300px" src="http://loremflickr.com/315/300?random={{s.aditemid}}" alt="">
+                            <img ng-click="activateAdItem(flyer, s)" height="300px" src="http://loremflickr.com/315/300?random={{s.aditemid}}" alt="">
                         </ks-swiper-slide>
                     </ks-swiper-container>
                 </header>
@@ -20,9 +20,14 @@
                     <p class="flyer-date">
                         <em class="text-muted">postet <span am-time-ago="flyer.createddate"></span></em>
                     </p>
-                    <p><em>{{ flyer.course.coursename }}</em></p>
-                    <h3>{{ flyer.adname }}</h3>
-                    <p>{{ flyer.user.username }} <span class="pull-right">totalt kr {{ calculateTotalPrice(flyer.aditems) }}</span></p>
+                    <div ng-show="flyer.selectedAdItem.active">
+                        <h3>{{ flyer.selectedAdItem.adItem.text }}</h3>
+                        <p>{{ flyer.user.username }} <span class="pull-right">kr {{ flyer.selectedAdItem.adItem.price }}</span></p>
+                    </div>
+                    <div ng-hide="flyer.selectedAdItem.active">
+                        <h3 >{{ flyer.adname }}</h3>
+                        <p>{{ flyer.user.username }} <span class="pull-right">totalt kr {{ calculateTotalPrice(flyer.aditems) }}</span></p>
+                    </div>
                 </div>
             </div>
         </div>

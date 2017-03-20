@@ -1,0 +1,18 @@
+<div class="profile">
+    <span ng-class="{'active': show}" class="header-icon user" ng-click="show = !show">
+        <i class="fa fa-user"></i>
+    </span>
+    <div class="profile-container bg-primary fade-box" ng-if="show">
+        <div class="profile-container-arrow"></div>
+        <div ng-if="isAuthenticated" class="profile-authenticated">
+            <button type="button" class="btn btn-success btn-block"><i class="fa fa-fw fa-plus"></i> annonse</button>
+            <div class="line"></div>
+            <button type="button" class="btn btn-warning btn-block"><i class="fa fa-fw fa-user-o"></i> profil</button>
+            <button type="button" class="btn btn-danger btn-block" ng-click="logout()"><i class="fa fa-fw fa-close"></i> logg ut</button>
+        </div>
+        <div ng-if="!isAuthenticated" class="profile-unauthenticated">
+            <button type="button" class="btn btn-success btn-block" ng-click="go('/login')">logg inn</button>
+        </div>
+
+    </div>
+</div>

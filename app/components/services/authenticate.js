@@ -7,14 +7,16 @@
         .service('AuthService', [
             'apiUrl',
             '$http',
+            '$location',
             'store',
             'growl',
             AuthService
         ])
 
-    function AuthService(apiUrl, $http, store, growl) {
+    function AuthService(apiUrl, $http, $location, store, growl) {
         this.verify = verify
         this.isAuthenticated = isAuthenticated
+        this.logout = logout
 
         function verify (username, passphrase) {
             if (username && passphrase) {
@@ -41,6 +43,16 @@
             }
 
             return false
+        }
+
+        function logout () {
+            var token = store.get('token')
+
+            if (typeof token === 'string') {
+                store.remove('token')
+            }
+
+            return true
         }
 
     }
