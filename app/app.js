@@ -40,6 +40,10 @@
                 templateUrl: 'app/item/new.html',
                 controller: 'NewItemCtrl',
             })
+            .when('/item/mine', {
+                templateUrl: 'app/item/new.html',
+                controller: 'NewItemCtrl',
+            })
             .when('/item/:itemId', {
                 templateUrl: 'app/item/item.html',
                 controller: 'ItemCtrl',

@@ -17,7 +17,7 @@
                     <header class="text-center">
                         <ks-swiper-container initial-slide="0" show-nav-buttons="true" slides-per-view="1" space-between="0" override-parameters="{'centeredSlides': ((flyer.aditems.length>1) ? false : true)}">
                             <ks-swiper-slide class="swiper-slide" ng-repeat="s in flyer.aditems">
-                                <img ng-click="activateAdItem(flyer, s)" height="300px" src="http://loremflickr.com/315/300?random={{s.aditemid}}" alt="">
+                                <img ng-click="activateAdItem(flyer, s)" height="259px" src="http://loremflickr.com/215/250?random={{s.aditemid}}" alt="">
                             </ks-swiper-slide>
                         </ks-swiper-container>
                     </header>
@@ -28,12 +28,12 @@
                         </p>
                         <div ng-show="flyer.selectedAdItem.active">
                             <h3>{{ flyer.selectedAdItem.adItem.text }}</h3>
-                            <p><span class="pull-right item-price">kr <strong>{{ flyer.selectedAdItem.adItem.price }}</strong></span></p>
+                            <p><span class="pull-right item-price"><strong>{{ flyer.selectedAdItem.adItem.price }}</strong> kr</span></p>
                             <div class="clearfix"></div>
                         </div>
                         <div ng-hide="flyer.selectedAdItem.active">
                             <h3 >{{ flyer.adname }}</h3>
-                            <p><span class="pull-right item-price">totalt kr <strong>{{ calculateTotalPrice(flyer.aditems) }}</strong></span></p>
+                            <p><span class="pull-right item-price">totalt <strong>{{ calculateTotalPrice(flyer.aditems) }}</strong> kr</span></p>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -44,3 +44,4 @@
         <div class="clearfix"></div>
     </div>
 </div>
+<div bn-footer></div>

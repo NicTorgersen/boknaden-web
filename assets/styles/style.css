@@ -2,12 +2,14 @@
 
 body {
     font-size: 14px;
-    line-height: 1em;
     background-color: #FAFAFA;
     overflow-y: scroll;
     font-family: 'Roboto', 'Open Sans', sans-serif;
     /* background: url('../images/crisp_paper_ruffles.png') repeat; */
     color: #19191F;
+}
+p {
+    line-height: 1.5em;
 }
 
 .ng-hide {
@@ -62,7 +64,7 @@ body {
 .profile .user {
     top: 0;
     right: 0;
-    padding: 50px 20px 15px 20px;
+    padding: 50px 20px 12px 20px;
 }
 .profile .profile-container {
     position: fixed;
@@ -157,7 +159,7 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: 20px 0 20px 20px;
+    padding: 20px 0 20px 45px;
 }
 .site-footer .copyright {
     display: inline-block;
@@ -262,6 +264,10 @@ body {
     color: #96124f;
     text-decoration: underline;
 }
+.flyerstore a.btn {
+    color: #fff;
+    text-decoration: none;
+}
 
 .flyerstore h2 {
     margin-bottom: 0;
@@ -276,6 +282,20 @@ body {
 .flyerstore .header {
     margin-left: 30px;
 }
+.flyerstore .header .flyer-interest {
+    margin-top: 20px;
+}
+.flyerstore .header p {
+    margin-top: 5px;
+    font-size: 16px;
+}
+.flyerstore .flyer-content {
+    /*margin-left: 30px;*/
+}
+.flyer-aditems {
+    border-left: 1px solid #ececec;
+    box-shadow: -2px 0px 0px #ffffff;
+}
 .flyer-aditem h3 {
     margin-top: 20px;
     margin-bottom: 5px;
@@ -285,7 +305,7 @@ body {
 }
 
 .single-flyer .flyer-content p {
-    
+
 }
 
 .btn-new-ad {
@@ -418,6 +438,10 @@ body {
 }
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'><path%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%2396124f'%2F><%2Fsvg>");
+}
+
+.text-boknaden {
+    color: #96124f;
 }
 
 .spinner-backdrop {
