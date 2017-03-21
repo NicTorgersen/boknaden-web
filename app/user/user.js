@@ -9,12 +9,12 @@
             'store',
             '$location',
             'growl',
-            'AdService',
+            'UserService',
             'AuthService',
             AdStoreCtrl
         ])
 
-    function AdStoreCtrl ($scope, $routeParams, store, $location, growl, AdService, AuthService) {
+    function AdStoreCtrl ($scope, $routeParams, store, $location, growl, UserService, AuthService) {
         $scope.flyer = {}
         $scope.isAuthenticated = AuthService.isAuthenticated()
         $scope.showSpinner = true
@@ -23,7 +23,7 @@
             $location.path(path)
         }
 
-        AdService.get($routeParams.itemId).then(function (res) {
+        UserService.get($routeParams.itemId).then(function (res) {
             $scope.showSpinner = false
             $scope.flyer = res.data
             console.log(res.data)

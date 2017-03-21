@@ -251,11 +251,43 @@ body {
     margin-bottom: 70px;
 }
 
-.latest-flyers {
-    margin-bottom: 16px;
+.flyerstore h3 {
+    margin: 10px 0 20px 0;
+}
+.flyerstore p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+.flyerstore a {
+    color: #96124f;
+    text-decoration: underline;
+}
+
+.flyerstore h2 {
+    margin-bottom: 0;
     border-bottom: 1px solid #fafafa;
     display: inline-block;
 }
+.flyerstore h2.latest-flyers {
+    margin-left: 30px;
+    margin-bottom: 25px;
+}
+
+.flyerstore .header {
+    margin-left: 30px;
+}
+.flyer-aditem h3 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.flyer-aditem p {
+    margin-top: 5px;
+}
+
+.single-flyer .flyer-content p {
+    
+}
+
 .btn-new-ad {
     margin-left: 20px;
     margin-top: -15px;
@@ -265,8 +297,6 @@ body {
     z-index: 9;
     padding-left: 0;
     padding-right: 0;
-    margin-left: 15px;
-    margin-right: 15px;
     margin-bottom: 15px;
 }
 .flyers .flyer-container .flyer-content {
@@ -280,7 +310,6 @@ body {
     cursor: pointer;
 }
 .flyers .flyer-container .flyer-content .item-price {
-    margin-top: -10px;
     padding: 10px;
     background: #1769ab;
 }
@@ -389,6 +418,18 @@ body {
 }
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'><path%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%2396124f'%2F><%2Fsvg>");
+}
+
+.spinner-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 20;
 }
 /*
 

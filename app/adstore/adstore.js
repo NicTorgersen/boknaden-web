@@ -15,15 +15,19 @@
 
     function AdStoreCtrl ($scope, store, $location, growl, AdService, AuthService) {
         $scope.flyers = []
-
         $scope.isAuthenticated = AuthService.isAuthenticated()
+        $scope.showSpinner = true
 
         AdService.getAll().then(function (res) {
-            console.log(res)
+            $scope.showSpinner = false
             $scope.flyers = res
         }, function (err) {
             growl.error(err, {title: 'Error'})
         })
+
+        $scope.go = function (path) {
+            $location.path(path)
+        }
 
         $scope.activateAdItem = function (flyer, aditem) {
             if (flyer.selectedAdItem.adItem.aditemid == aditem.aditemid) {
@@ -51,7 +55,6 @@
             $scope.priceCalculated = (price * 1.1).toFixed(2)
         }
 
-        $scope.addingNew = false
     }
 
 })();

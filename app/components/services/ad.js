@@ -12,7 +12,7 @@
         ])
 
     function AdService(apiUrl, $http, store) {
-        // this.get = get
+        this.get = get
         this.getAll = getAll
 
         function get (id) {

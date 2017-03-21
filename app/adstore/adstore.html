@@ -1,36 +1,46 @@
+<div class="spinner" ng-if="showSpinner">
+    <span us-spinner="{radius:30, width:8, length: 16, color: '#96124f'}" spinner-on="showSpinner"></span>
+    <div class="spinner-backdrop"></div>
+</div>
 <div bn-profile></div>
 <div class="flyerstore">
     <div class="flyers">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="latest-flyers">Siste annonser</h3>
+                <h2 class="latest-flyers">Siste annonser</h2>
                 <!-- <button type="button" class="btn btn-primary btn-sm btn-new-ad"><i class="fa fa-fw fa-plus"></i> ny</button> -->
             </div>
         </div>
         <div class="row">
             <div ng-repeat="flyer in flyers" class="col-lg-3 col-md-4 col-sm-5 flyer-container">
-                <header class="text-center">
-                    <ks-swiper-container initial-slide="0" show-nav-buttons="true" slides-per-view="1" space-between="0" override-parameters="{'centeredSlides': ((flyer.aditems.length>1) ? false : true)}">
-                        <ks-swiper-slide class="swiper-slide" ng-repeat="s in flyer.aditems">
-                            <img ng-click="activateAdItem(flyer, s)" height="300px" src="http://loremflickr.com/315/300?random={{s.aditemid}}" alt="">
-                        </ks-swiper-slide>
-                    </ks-swiper-container>
-                </header>
-                <div class="flyer-content">
-                    <p class="flyer-date">
-                        <em class="text-muted">postet <span am-time-ago="flyer.createddate"></span></em>
-                    </p>
-                    <div ng-show="flyer.selectedAdItem.active">
-                        <h3>{{ flyer.selectedAdItem.adItem.text }}</h3>
-                        <p>{{ flyer.user.username }} <span class="pull-right item-price">kr <strong>{{ flyer.selectedAdItem.adItem.price }}</strong></span></p>
-                    </div>
-                    <div ng-hide="flyer.selectedAdItem.active">
-                        <h3 >{{ flyer.adname }}</h3>
-                        <p>{{ flyer.user.username }} <span class="pull-right item-price">totalt kr <strong>{{ calculateTotalPrice(flyer.aditems) }}</strong></span></p>
+                <div class="col-xs-12">
+                    <header class="text-center">
+                        <ks-swiper-container initial-slide="0" show-nav-buttons="true" slides-per-view="1" space-between="0" override-parameters="{'centeredSlides': ((flyer.aditems.length>1) ? false : true)}">
+                            <ks-swiper-slide class="swiper-slide" ng-repeat="s in flyer.aditems">
+                                <img ng-click="activateAdItem(flyer, s)" height="300px" src="http://loremflickr.com/315/300?random={{s.aditemid}}" alt="">
+                            </ks-swiper-slide>
+                        </ks-swiper-container>
+                    </header>
+                    <div class="flyer-content" ng-click="go('/item/' + flyer.adid)">
+                        <p class="flyer-aside">
+                            <em>postet <span am-time-ago="flyer.createddate"></span></em>
+                            <span class="pull-right"><a href="" ng-click="go('/user/' + flyer.user.userid)">{{ flyer.user.username }}</a></span>
+                        </p>
+                        <div ng-show="flyer.selectedAdItem.active">
+                            <h3>{{ flyer.selectedAdItem.adItem.text }}</h3>
+                            <p><span class="pull-right item-price">kr <strong>{{ flyer.selectedAdItem.adItem.price }}</strong></span></p>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div ng-hide="flyer.selectedAdItem.active">
+                            <h3 >{{ flyer.adname }}</h3>
+                            <p><span class="pull-right item-price">totalt kr <strong>{{ calculateTotalPrice(flyer.aditems) }}</strong></span></p>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="clearfix"></div>
     </div>
 </div>

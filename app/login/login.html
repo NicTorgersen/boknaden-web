@@ -3,12 +3,12 @@
         <uib-tabset active="activeJustified" justified="true">
             <uib-tab index="0" heading="Logg inn">
                 <div class="login-component">
-                    <div class="social">
+                    <!-- <div class="social">
                         <button class="btn btn-default">
                             <i class="fa fa-fw fa-facebook-square"></i>
                         </button>
                         <p>eller</p>
-                    </div>
+                    </div> -->
 
                     <form class="login-form">
                         <div class="form-group">
@@ -20,19 +20,21 @@
                             <label for="password_lgn">Passord</label>
                             <input type="password" id="password_lgn" ng-model="user.pass" class="form-control bn-input" required>
                         </div>
-
-                        <input type="submit" class="btn btn-primary" value="Logg inn" ng-click="doLogin()">
+                        <div class="">
+                            <input type="submit" class="btn btn-primary" value="Logg inn" ng-click="doLogin()">
+                            <input type="button" class="btn btn-link pull-right" value="Glemt passord?" ng-click="doForgotPassword()">
+                        </div>
                     </form>
                 </div>
             </uib-tab>
             <uib-tab index="1" heading="Ny bruker">
                 <div class="register-component">
-                    <div class="social">
+                    <!-- <div class="social">
                         <button class="btn btn-default">
                             <i class="fa fa-fw fa-facebook-square"></i>
                         </button>
                         <p>eller</p>
-                    </div>
+                    </div> -->
 
                     <form class="register-form">
                         <!-- <div class="checkbox">

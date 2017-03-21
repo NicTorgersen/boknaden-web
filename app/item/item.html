@@ -1,0 +1,27 @@
+<div class="spinner" ng-if="showSpinner">
+    <span us-spinner="{radius:30, width:8, length: 16, color: '#96124f'}" spinner-on="showSpinner"></span>
+    <div class="spinner-backdrop"></div>
+</div>
+<div bn-profile></div>
+<div class="flyerstore">
+    <div class="row single-flyer">
+        <div class="col-md-8">
+            <div class="header">
+                <h2>{{ flyer.adname }}</h2>
+                <p>
+                    Opprettet av <a href="" ng-click="go('/user/' + flyer.user.userid)">{{ flyer.user.username }}</a> i <a href="" ng-click="go('/store/'+flyer.course.courseid)">{{ flyer.course.coursename }}</a> på <a href="" ng-click="go('/store/'+flyer.course.courseid)">{{ flyer.course.university.universityname }}</a> for <span am-time-ago="flyer.createddate"></span>
+                </p>
+            </div>
+            <div class="flyer-content">
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-12">
+                <h3>{{ aditem.text }}</h3>
+                <p>{{ aditem.description }}</p>
+                <img height="300px" src="http://loremflickr.com/315/300?random={{aditem.aditemid}}" alt="">
+            </div>
+        </div>
+    </div>
+</div>

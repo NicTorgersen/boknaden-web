@@ -46,14 +46,18 @@
                     AuthService.verify($scope.user.username, $scope.user.pass).then(function (response) {
                         $location.path('/store')
                     }, function (err) {
-                        console.log(err)
-                        growl.error(err)
+                        growl.error('Feil brukernavn eller passord', { title: 'Feil' })
                     })
                 }
             }
         }
 
+        function doForgotPassword () {
+            
+        }
+
         $scope.doLogin = doLogin
+        $scope.doForgotPassword = doForgotPassword
 
         $scope.toggleLogin = function () {
             reset()
