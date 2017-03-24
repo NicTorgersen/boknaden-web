@@ -32,6 +32,10 @@
                 templateUrl: 'app/login/login.html',
                 controller: 'LoginCtrl',
             })
+            .when('/forgotpassword', {
+                templateUrl: 'app/login/forgotpassword.html',
+                controller: 'ForgotPasswordCtrl',
+            })
             .when('/store', {
                 templateUrl: 'app/adstore/adstore.html',
                 controller: 'AdStoreCtrl',

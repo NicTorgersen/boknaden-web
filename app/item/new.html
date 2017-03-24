@@ -1,1 +1,35 @@
+<div class="spinner" ng-if="showSpinner">
+    <span us-spinner="{radius:30, width:8, length: 16, color: '#96124f'}" spinner-on="showSpinner"></span>
+    <div class="spinner-backdrop"></div>
+</div>
 <div bn-profile></div>
+<div class="spinner" ng-if="showSpinner">
+    <span us-spinner="{radius:30, width:8, length: 16, color: '#96124f'}" spinner-on="showSpinner"></span>
+    <div class="spinner-backdrop"></div>
+</div>
+<div bn-profile></div>
+<div class="flyerstore">
+    <div class="row single-flyer">
+        <div class="col-md-6">
+            <div class="header">
+                <input type="text" class="form-control" placeholder="Tittel på annonse">
+            </div>
+            <div class="flyer-content">
+                <p>
+                    Opprettet av <a href="" ng-click="go('/user/' + flyer.user.userid)">{{ flyer.user.username }}</a> i <a href="" ng-click="go('/store/'+flyer.course.courseid)">{{ flyer.course.coursename }}</a> på <a href="" ng-click="go('/store/'+flyer.course.courseid)">{{ flyer.course.university.universityname }}</a> for <span am-time-ago="flyer.createddate"></span>.
+                </p>
+                <p>Totalt <span class="text-boknaden">{{ calculateTotalPrice(flyer.aditems) }} kr</span></p>
+                <p ng-if="flyer.text">{{ flyer.text }}</p>
+            </div>
+        </div>
+        <div class="col-md-6 flyer-aditems">
+            <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-12">
+                <h3>{{ aditem.text }}</h3>
+                <p><span class="text-boknaden">{{ aditem.price }} kr</span></p>
+                <em ng-if="aditem.isbn">isbn {{ aditem.isbn }}</em>
+                <p>{{ aditem.description }}</p>
+                <img height="300px" src="http://loremflickr.com/315/300?random={{aditem.aditemid}}" alt="">
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,10 +23,11 @@
         var userDefault = {
             firstname: '',
             lastname: '',
+            email: '',
             pass: 'lol123',
             pass2: '',
             username: 'nictorgersen',
-            number: '',
+            phone: '',
             business: {
                 isBusiness: false,
                 businessName: '',
@@ -52,12 +53,7 @@
             }
         }
 
-        function doForgotPassword () {
-            
-        }
-
         $scope.doLogin = doLogin
-        $scope.doForgotPassword = doForgotPassword
 
         $scope.toggleLogin = function () {
             reset()
@@ -66,6 +62,9 @@
         $scope.toggleRegister = function () {
             reset()
             $scope.register = !$scope.register
+        }
+        $scope.go = function (path) {
+            $location.path(path)
         }
     }
 

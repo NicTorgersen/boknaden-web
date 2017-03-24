@@ -23,7 +23,7 @@ p {
     left: 0;
     right: 0;
     top: 0;
-    background: #96124f;
+    background: #3b8da5;
     padding-bottom: 10px;
 }
 .site-header .site-title {
@@ -72,7 +72,7 @@ p {
     right: 10px;
     width: 200px;
     padding: 20px;
-    background-color: #96124f;
+    background-color: #3b8da5;
     border-radius: 3px;
 }
 .profile .profile-container-arrow {
@@ -83,7 +83,7 @@ p {
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 15px solid #96124f;
+    border-bottom: 15px solid #3b8da5;
 }
 
 .main-navigation {
@@ -111,11 +111,10 @@ p {
     position: fixed;
 }
 .header-icon.active {
-    background: #881047;
+    background: #317d94;
 }
 .header-icon:hover {
     cursor: pointer;
-    background: #881047;
 }
 .header-icon i {
     font-size: 35px;
@@ -347,7 +346,7 @@ p {
 }
 
 .line {
-    border-bottom: 2px solid #820d43;
+    border-bottom: 2px solid #317d94;/*#820d43;*/
     margin: 15px 0;
 }
 

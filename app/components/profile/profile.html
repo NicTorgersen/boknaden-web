@@ -1,19 +1,17 @@
 <div class="profile">
-    <span ng-class="{'active': show}" class="header-icon user" ng-click="show = !show">
+    <span ng-class="{'active': show}" class="header-icon user" ng-click="goLogin(); show = !show">
         <i class="fa fa-user"></i>
     </span>
     <div class="profile-container bg-primary fade-box" ng-if="show">
         <div class="profile-container-arrow"></div>
-        <div ng-if="isAuthenticated" class="profile-authenticated">
+
+        <div ng-if="authed" class="profile-authenticated">
             <button type="button" class="btn btn-primary btn-block" ng-click="">profil</button>
             <div class="line"></div>
             <button type="button" class="btn btn-primary btn-block" ng-click="go('/item/new')">ny annonse</button>
             <button type="button" class="btn btn-primary btn-block" ng-click="go('/item/mine')">dine annonser</button>
             <div class="line"></div>
             <button type="button" class="btn btn-danger btn-block" ng-click="logout()">logg ut</button>
-        </div>
-        <div ng-if="!isAuthenticated" class="profile-unauthenticated">
-            <button type="button" class="btn btn-success btn-block" ng-click="go('/login')">logg inn</button>
         </div>
 
     </div>
