@@ -57,19 +57,23 @@ p {
     margin-left: 2px;
 }
 
+.view {
+    margin-top: 110px;
+}
+
 .profile {
     z-index: 11;
     position: fixed;
 }
 .profile .user {
     top: 0;
-    right: 0;
+    left: 0;
     padding: 50px 20px 12px 20px;
 }
 .profile .profile-container {
     position: fixed;
     top: 120px;
-    right: 10px;
+    left: 10px;
     width: 200px;
     padding: 20px;
     background-color: #3b8da5;
@@ -78,7 +82,7 @@ p {
 .profile .profile-container-arrow {
     position: fixed;
     top: 105px;
-    right: 18px;
+    left: 18px;
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
@@ -281,12 +285,16 @@ p {
 .flyerstore .header {
     margin-left: 30px;
 }
-.flyerstore .header .flyer-interest {
-    margin-top: 20px;
-}
 .flyerstore .header p {
     margin-top: 5px;
     font-size: 16px;
+}
+.flyer-interest {
+    padding-left: 15px;
+    border-bottom: 1px solid #ececec;
+}
+.flyer-interest p {
+    margin-top: 0;
 }
 .flyerstore .flyer-content {
     /*margin-left: 30px;*/
@@ -294,6 +302,7 @@ p {
 .flyer-aditems {
     border-left: 1px solid #ececec;
     box-shadow: -2px 0px 0px #ffffff;
+    padding-left: 0;
 }
 .flyer-aditem h3 {
     margin-top: 20px;

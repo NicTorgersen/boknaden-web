@@ -15,6 +15,9 @@
         return {
             get: get,
             getAll: getAll,
+            forgotPassword: forgotPassword,
+            resetPassword: resetPassword,
+            verifyCode: verifyCode,
         }
 
         function get (id) {
@@ -33,6 +36,30 @@
             return $http({
                 url: apiUrl + '/users',
                 method: 'GET',
+            })
+        }
+
+        function forgotPassword (username) {
+            return $http({
+                url: apiUrl + '/forgotpassword',
+                method: 'POST',
+                data: {username: username}
+            })
+        }
+
+        function resetPassword (passphrase) {
+            return $http({
+                url: apiUrl + '/changepassword',
+                method: 'POST',
+                data: {passphrase: passphrase}
+            })
+        }
+
+        function verifyCode (code) {
+            return $http({
+                url: apiUrl + '/forgotpassword',
+                method: 'GET',
+                params: {code: code}
             })
         }
 
