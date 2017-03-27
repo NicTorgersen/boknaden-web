@@ -1,6 +1,6 @@
 <div class="row fade-view login-register-component">
     <div class="col-md-6 col-md-offset-3">
-        <uib-tabset active="activeJustified" justified="true">
+        <uib-tabset active="activeTab" justified="true">
             <uib-tab index="0" heading="Logg inn">
                 <div class="login-component">
                     <!-- <div class="social">
@@ -36,15 +36,26 @@
                         <p>eller</p>
                     </div> -->
 
-                    <form class="register-form">
-                        <!-- <div class="checkbox">
-                            <label>
-                                <input type="checkbox" ng-model="user.business.isBusiness"> Bedrift?
-                            </label>
-                        </div> -->
+                    <form class="register-form" name="register" ng-changed="console.log(register.$error)">
+                        <div class="form-group">
+                            <label for="emailUsername_reg">Brukernavn</label>
+                            <input type="text" id="emailUsername_reg" ng-model="user.username" class="form-control bn-input" required autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label for="courseSelect_reg">Linje</label>
+                            <select ng-hide="loading"
+                                    id="courseSelect_reg"
+                                    class="form-control"
+                                    required=""
+                                    ng-model="user.course"
+                                    ng-change="logChanged(user.courseid)"
+                                    ng-options="course.coursename for course in courses track by course.courseid">
+                                <option value="" disabled="">Velg en...</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="emailUsername_reg">E-post</label>
-                            <input type="text" id="emailUsername_reg" ng-model="user.email" class="form-control bn-input" required autofocus="">
+                            <input type="email" id="emailUsername_reg" ng-model="user.email" class="form-control bn-input" required autofocus="">
                         </div>
                         <div class="form-group">
                             <label for="firstname_reg">Fornavn</label>
@@ -56,15 +67,7 @@
                         </div>
                         <div class="form-group">
                             <label for="number_reg">Mobilnummer</label>
-                            <input type="number" id="number_reg" ng-model="user.number" class="form-control bn-input" required>
-                        </div>
-                        <div ng-if="user.business.isBusiness" class="form-group fade-view">
-                            <label for="businessnumber_reg">Organisasjonsnummer</label>
-                            <input type="number" id="businessnumber_reg" ng-model="user.business.businessNumber" class="form-control bn-input" required>
-                        </div>
-                        <div ng-if="user.business.isBusiness" class="form-group fade-view">
-                            <label for="businessname_reg">Foretaksnavn</label>
-                            <input type="text" id="businessname_reg" ng-model="user.business.businessName" class="form-control bn-input" required>
+                            <input type="number" id="number_reg" ng-model="user.phone" class="form-control bn-input" required>
                         </div>
                         <div class="form-group">
                             <label for="password1_reg">Passord</label>
@@ -72,14 +75,14 @@
                         </div>
                         <div class="form-group">
                             <label for="password2_reg">Passord igjen</label>
-                            <input type="password" id="group" ng-model="user.pass2" class="form-control bn-input" required>
+                            <input type="password" id="group" ng-model="user.pass2" class="form-control bn-input" required password-verify="user.pass">
                         </div>
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" ng-model="user.terms" required> Jeg har lest og godtar <a>vilkårene</a>
                             </label>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Registrer">
+                        <input type="submit" ng-disabled="register.$invalid" class="btn btn-primary" value="Registrer" ng-click="doRegister(user)">
                     </form>
                 </div>
             </uib-tab>

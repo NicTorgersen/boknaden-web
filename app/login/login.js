@@ -6,19 +6,17 @@
         .controller('LoginCtrl', [
             '$scope',
             '$location',
+            'UserService',
             'AuthService',
+            'CourseService',
             'growl',
             LoginCtrl
         ])
 
-    function LoginCtrl ($scope, $location, AuthService, growl) {
-        $scope.isAuthenticated = AuthService.isAuthenticated()
-        if ($scope.isAuthenticated) {
+    function LoginCtrl ($scope, $location, UserService, AuthService, CourseService, growl) {
+        if (AuthService.isAuthenticated()) {
             $location.path('/store')
         }
-
-        $scope.login = true
-        $scope.register = false
 
         var userDefault = {
             firstname: '',
@@ -28,14 +26,21 @@
             pass2: '',
             username: 'nictorgersen',
             phone: '',
-            business: {
-                isBusiness: false,
-                businessName: '',
-                businessNumber: '',
-            }
+            terms: false,
+            course: {},
         }
 
+        $scope.courses = []
+
+        CourseService.getAll().then(function (courses) {
+            for (var i = 0; i < courses.data.length; i++) {
+                var course = courses.data[i]
+                $scope.courses.push({courseid: course.courseid, coursename: course.coursename})
+            }
+        })
+
         $scope.user = userDefault
+        $scope.activeTab = 0
 
         function reset () {
             $scope.user = userDefault
@@ -53,7 +58,20 @@
             }
         }
 
+        function doRegister (user) {
+            console.log(user)
+            UserService.create(user).then(function (response) {
+                if (response.data.err) {
+                    growl.error('Sikker på at alt er riktig fylt inn?', { title: 'Feil' })
+                } else {
+                    growl.success('Du er nå registrert. Vi sender deg en e-post.', { title: 'Grattis!' })
+                    $scope.activeTab = 0
+                }
+            })
+        }
+
         $scope.doLogin = doLogin
+        $scope.doRegister = doRegister
 
         $scope.toggleLogin = function () {
             reset()

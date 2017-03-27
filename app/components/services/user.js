@@ -10,7 +10,7 @@
             UserService
         ])
 
-    function UserService(apiUrl, $http) {
+    function UserService (apiUrl, $http) {
 
         return {
             get: get,
@@ -18,6 +18,7 @@
             forgotPassword: forgotPassword,
             resetPassword: resetPassword,
             verifyCode: verifyCode,
+            create: create,
         }
 
         function get (id) {
@@ -29,7 +30,6 @@
                     params: {userid: parseInt(id)}
                 })
             }
-
         }
 
         function getAll () {
@@ -60,6 +60,22 @@
                 url: apiUrl + '/forgotpassword',
                 method: 'GET',
                 params: {code: code}
+            })
+        }
+
+        function create (user) {
+            return $http({
+                url: apiUrl + '/users',
+                method: 'POST',
+                data: {
+                    username: user.username,
+                    passphrase: user.pass,
+                    email: user.email,
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    phone: user.phone,
+                    courseid: user.course.courseid,
+                }
             })
         }
 

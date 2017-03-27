@@ -10,26 +10,38 @@
 <div bn-profile></div>
 <div class="flyerstore">
     <div class="row single-flyer">
-        <div class="col-md-6">
-            <div class="header">
-                <input type="text" class="form-control" placeholder="Tittel på annonse">
-            </div>
-            <div class="flyer-content">
-                <p>
-                    Opprettet av <a href="" ng-click="go('/user/' + flyer.user.userid)">{{ flyer.user.username }}</a> i <a href="" ng-click="go('/store/'+flyer.course.courseid)">{{ flyer.course.coursename }}</a> på <a href="" ng-click="go('/store/'+flyer.course.courseid)">{{ flyer.course.university.universityname }}</a> for <span am-time-ago="flyer.createddate"></span>.
-                </p>
-                <p>Totalt <span class="text-boknaden">{{ calculateTotalPrice(flyer.aditems) }} kr</span></p>
-                <p ng-if="flyer.text">{{ flyer.text }}</p>
-            </div>
-        </div>
-        <div class="col-md-6 flyer-aditems">
-            <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-12">
-                <h3>{{ aditem.text }}</h3>
-                <p><span class="text-boknaden">{{ aditem.price }} kr</span></p>
-                <em ng-if="aditem.isbn">isbn {{ aditem.isbn }}</em>
-                <p>{{ aditem.description }}</p>
-                <img height="300px" src="http://loremflickr.com/315/300?random={{aditem.aditemid}}" alt="">
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+            <h3>Tittel</h3>
+            <input type="text" id="flyer-text" class="form-control" placeholder="Tittel på annonse">
+
+            <h3>Innhold <button class="btn btn-primary btn-link" ng-click="addAdItemToFlyer()"><i class="fa fa-fw fa-plus"></i> Legg til</button></h3>
+            <uib-tabset active="activeFlyerItem" type="pills">
+                <uib-tab index="$index" heading="{{ item.text || 'Ingen tittel' }}" ng-repeat="item in flyer.aditems track by $index">
+                    <form class="" name="item-{{$index}}">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="item.isBook" required> Bok?
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="item-title">Tittel</label>
+                            <input type="text" id="item-title" ng-model="item.text" class="form-control">
+                        </div>
+                        <div class="form-group" ng-show="item.isBook">
+                            <label for="item-isbn">ISBN</label>
+                            <input type="number" id="item-isbn" ng-model="item.isbn" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="item-price">Pris (NOK)</label>
+                            <input type="number" id="item-price" ng-model="item.price" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="item-description">Nærmere beskrivelse</label>
+                            <textarea rows="3" type="text" ng-model="item.description" id="item-description" class="form-control">
+                        </div>
+                    </form>
+                </uib-tab>
+            </uib-tabset>
         </div>
     </div>
 </div>

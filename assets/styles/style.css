@@ -425,14 +425,23 @@ p {
     opacity: 0;
 }
 
-.register-form input.ng-invalid.ng-touched {
-    -webkit-box-shadow: inset 0 -1px 0 #FA787E;
-    box-shadow: inset 0 -1px 0 #FA787E;
+.register-form input {
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
 }
 
-.register-form input.ng-valid.ng-touched {
+.register-form input.ng-invalid.ng-touched:not([type=checkbox]) {
+    -webkit-box-shadow: inset 0 -1px 0 #FA787E;
+    box-shadow: inset 0 -1px 0 #FA787E;
+    padding-left: 10px;
+    background: #fff5f5;
+}
+
+.register-form input.ng-valid.ng-touched:not([type=checkbox]) {
     -webkit-box-shadow: inset 0 -1px 0 #78FA89;
     box-shadow: inset 0 -1px 0 #78FA89;
+    padding-left: 10px;
+    background: #f7fff5;
 }
 
 .superficially-hidden {
