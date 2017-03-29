@@ -15,9 +15,9 @@
             templateUrl: 'app/components/profile/profile.html',
             link: function (scope, element, attrs) {
                 scope.authed = AuthService.isAuthenticated()
+                scope.profile = AuthService.profile()
                 scope.show = false
                 scope.goLogin = function () {
-                    console.log(scope.authed)
                     if (scope.authed) {
                         return
                     }

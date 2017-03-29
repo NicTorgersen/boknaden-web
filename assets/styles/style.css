@@ -8,6 +8,7 @@ body {
     /* background: url('../images/crisp_paper_ruffles.png') repeat; */
     color: #19191F;
 }
+
 p {
     line-height: 1.5em;
 }
@@ -23,7 +24,7 @@ p {
     left: 0;
     right: 0;
     top: 0;
-    background: #3b8da5;
+    background: #0075a1;
     padding-bottom: 10px;
 }
 .site-header .site-title {
@@ -76,7 +77,7 @@ p {
     left: 10px;
     width: 200px;
     padding: 20px;
-    background-color: #3b8da5;
+    background-color: #036185;
     border-radius: 3px;
 }
 .profile .profile-container-arrow {
@@ -87,7 +88,7 @@ p {
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 15px solid #3b8da5;
+    border-bottom: 15px solid #036185;
 }
 
 .main-navigation {
@@ -115,7 +116,7 @@ p {
     position: fixed;
 }
 .header-icon.active {
-    background: #317d94;
+    background: #036185;
 }
 .header-icon:hover {
     cursor: pointer;
@@ -251,20 +252,39 @@ p {
     margin: 0;
 }
 
+.total-price {
+    margin-top: 20px;
+}
+.description {
+    margin-top: 20px;
+}
+.flyer-aditem {
+    margin-top: 20px;
+}
+.flyer-aditem h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.flyer-aditem p {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.flyer-salesman {
+    border-left: 1px solid #e3e9ea;
+}
+
+
 .flyerstore {
     margin-top: 115px;
     margin-bottom: 70px;
 }
 
-.flyerstore h3 {
-    margin: 10px 0 20px 0;
-}
 .flyerstore p {
     margin: 10px 0;
     font-size: 18px;
 }
 .flyerstore a {
-    color: #96124f;
+    color: #0075a1;
     text-decoration: underline;
 }
 .flyerstore a.btn {
@@ -290,30 +310,19 @@ p {
     font-size: 16px;
 }
 .flyer-interest {
-    padding-left: 15px;
-    border-bottom: 1px solid #ececec;
+    margin-top: 20px;
+    padding-left: 0;
 }
 .flyer-interest p {
     margin-top: 0;
 }
 .flyerstore .flyer-content {
-    /*margin-left: 30px;*/
+    margin-left: 30px;
 }
 .flyer-aditems {
     border-left: 1px solid #ececec;
     box-shadow: -2px 0px 0px #ffffff;
     padding-left: 0;
-}
-.flyer-aditem h3 {
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
-.flyer-aditem p {
-    margin-top: 5px;
-}
-
-.single-flyer .flyer-content p {
-
 }
 
 .btn-new-ad {
@@ -326,6 +335,10 @@ p {
     padding-left: 0;
     padding-right: 0;
     margin-bottom: 15px;
+}
+.flyers .flyer-container header {
+    min-height: 259px;
+    height: 259px;
 }
 .flyers .flyer-container .flyer-content {
     background: #2196f3;
@@ -352,6 +365,20 @@ p {
 
 .flyers .flyer-container .flyer-date .text-muted {
     color: #fff;
+}
+
+.add-flyer {
+    margin-top: 110px;
+}
+
+.add-flyer h3 {
+    margin: 10px 0;
+}
+
+.flyer-items {
+    margin-top: 10px;
+    background: #fff;
+    padding: 5px 15px;
 }
 
 .line {
@@ -458,7 +485,7 @@ p {
 }
 
 .text-boknaden {
-    color: #96124f;
+    color: #0075a1;
 }
 
 .spinner-backdrop {

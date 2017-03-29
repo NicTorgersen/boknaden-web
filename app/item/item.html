@@ -15,21 +15,36 @@
                 <p>
                     Opprettet av <a href="" ng-click="go('/user/' + flyer.user.userid)">{{ flyer.user.username }}</a> i <a href="" ng-click="go('/store/'+flyer.course.courseid)">{{ flyer.course.coursename }}</a> på <a href="" ng-click="go('/store/'+flyer.course.courseid)">{{ flyer.course.university.universityname }}</a> for <span am-time-ago="flyer.createddate"></span>.
                 </p>
-                <p>Totalt <span class="text-boknaden">{{ calculateTotalPrice(flyer.aditems) }} kr</span></p>
-                <p ng-if="flyer.text">{{ flyer.text }}</p>
+                <h4 class="total-price">Kr <span class="text-boknaden">{{ calculateTotalPrice(flyer.aditems) }}</span></h4>
+                <p class="description" ng-if="flyer.text">{{ flyer.text }}</p>
+                <p class="description" ng-if="!flyer.text"><em>Ingen beskrivelse.</em></p>
+
+                <div class="row">
+                    <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-3">
+                        <img width="240px" src="http://loremflickr.com/315/300?random={{aditem.aditemid}}" alt="">
+                        <p class="text-center"><span class="text-boknaden">{{ aditem.price }} kr</span></p>
+                        <h3 class="text-center">{{ aditem.text }}</h3>
+                        <em class="text-center" ng-if="aditem.isbn">isbn {{ aditem.isbn }}</em>
+                        <p>{{ aditem.description }}</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-5 flyer-aditems">
+        <div class="col-md-5 flyer-salesman">
+            <div class="salesman-head">
+                <h4>Selger</h4>
+            </div>
+            <div class="salesman-body">
+                <p>Navn: {{ flyer.user.firstname }} {{ flyer.user.lastname }}</p>
+                <p>Sted: </p>
+                <p>E-post:
+                    <span ng-if="isAuthenticated">{{ flyer.user.email }}</span>
+                    <span ng-if="!isAuthenticated"><a href ng-click="go('/login')">Logg inn for e-post</a></span>
+                </p>
+            </div>
             <div class="flyer-interest">
                 <p ng-if="!isAuthenticated"><button type="button" ng-click="go('/login')" class="btn btn-lg btn-success">Logg inn</button> for å melde interesse</p>
                 <p ng-if="isAuthenticated"><button ng-disabled="true" type="button" class="btn btn-lg btn-primary">Meld interesse</button></p>
-            </div>
-            <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-12">
-                <h3>{{ aditem.text }}</h3>
-                <p><span class="text-boknaden">{{ aditem.price }} kr</span></p>
-                <em ng-if="aditem.isbn">isbn {{ aditem.isbn }}</em>
-                <p>{{ aditem.description }}</p>
-                <img height="300px" src="http://loremflickr.com/315/300?random={{aditem.aditemid}}" alt="">
             </div>
         </div>
     </div>

@@ -1,0 +1,49 @@
+<div class="spinner" ng-if="showSpinner">
+    <span us-spinner="{radius:30, width:8, length: 16, color: '#96124f'}" spinner-on="showSpinner"></span>
+    <div class="spinner-backdrop"></div>
+</div>
+<div bn-profile></div>
+<div class="flyerstore">
+    <div class="flyers">
+        <div class="row">
+            <div ng-if="flyers.length > 0" class="table-responsive col-md-8 col-md-offset-2">
+                <h2 style="margin-bottom: 20px;">Dine annonser</h2>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tittel</th>
+                            <th>Dato</th>
+                            <th class="text-center">Aktiv</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="flyer in flyers">
+                            <td>{{ flyer.adid }}</td>
+                            <td>{{ flyer.adname }}</td>
+                            <td>{{ flyer.createddate | amDateFormat:'Do MMMM YYYY, H:mm' }}</td>
+                            <td class="text-center">
+                                <i ng-if="flyer.deleted === 0" class="fa fa-check text-success"></i>
+                                <i ng-if="flyer.deleted === 1" class="fa fa-remove text-danger"></i></td>
+                            <td class="text-center">
+                                <button ng-disabled="flyer.deleted === 1" type="button" class="btn btn-sm btn-primary"><i class="fa fa-fw fa-pencil"></i> Endre</button>
+                            </td>
+                            <td class="text-center">
+                                <button ng-if="flyer.deleted === 0" type="button" class="btn btn-sm btn-danger" ng-click="deleteAd(flyer.adid)"><i class="fa fa-fw fa-remove"></i> Deaktiver</button>
+                                <button ng-if="flyer.deleted === 1" name="button" class="btn btn-sm btn-success" ng-click="activateAd(flyer.adid)"><i class="fa fa-fw fa-check"></i> Aktiver</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-if="flyers.length === 0" class="col-md-8 col-md-offset-2">
+                <p>Ser ikke ut som du har opprettet noen annonser. <a href ng-click="go('/item/new')">Lag en nå!</a></p>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div bn-footer></div>

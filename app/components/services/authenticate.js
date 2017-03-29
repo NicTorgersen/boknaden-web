@@ -18,6 +18,7 @@
         this.verify = verify
         this.isAuthenticated = isAuthenticated
         this.profile = profile
+        this.token = token
         this.logout = logout
 
         function verify (username, passphrase) {
@@ -52,20 +53,30 @@
             var token   = store.get('token'),
                 profile = store.get('profile')
 
-            if (typeof profile === 'object') {
+            if (token) {
+                var profile = jwtHelper.decodeToken(token)
                 return profile
             }
+        }
+
+        function token () {
+            var token = store.get('token')
 
             if (typeof token === 'string') {
-                return jwtHelper.decodeToken(token)
+                return token
             }
         }
 
         function logout () {
-            var token = store.get('token')
+            var token   = store.get('token'),
+                profile = store.get('profile')
 
             if (typeof token === 'string') {
                 store.remove('token')
+            }
+
+            if (typeof profile === 'object') {
+                store.remove('profile')
             }
 
             return true

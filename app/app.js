@@ -49,18 +49,23 @@
                 controller: 'NewItemCtrl',
             })
             .when('/item/mine', {
-                templateUrl: 'app/item/new.html',
-                controller: 'NewItemCtrl',
+                templateUrl: 'app/adstore/mine.html',
+                controller: 'MyAdsCtrl',
             })
             .when('/item/:itemId', {
                 templateUrl: 'app/item/item.html',
                 controller: 'ItemCtrl',
             })
+            .when('/logs', {
+                templateUrl: 'app/logs/logs.html',
+                controller: 'LogsCtrl',
+            })
             .otherwise({
-                redirectTo: '/store'
+                redirectTo: '/store',
             })
 
         $httpProvider.interceptors.push('authInterceptor')
+        $httpProvider.defaults.headers.delete = { "Content-Type": "application/json;charset=utf-8" }
 
     }
 

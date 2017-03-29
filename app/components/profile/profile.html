@@ -6,11 +6,15 @@
         <div class="profile-container-arrow"></div>
 
         <div ng-if="authed" class="profile-authenticated">
-            <button type="button" class="btn btn-primary btn-block" ng-click="">profil</button>
+            <button type="button" class="btn btn-primary btn-block" ng-click="">{{ profile.username }}</button>
             <div class="line"></div>
             <button type="button" class="btn btn-primary btn-block" ng-click="go('/item/new')">ny annonse</button>
             <button type="button" class="btn btn-primary btn-block" ng-click="go('/item/mine')">dine annonser</button>
             <div class="line"></div>
+            <div ng-if="profile.isadmin">
+                <button type="button" class="btn btn-primary btn-block" ng-click="go('/logs')">logs</button>
+                <div class="line"></div>
+            </div>
             <button type="button" class="btn btn-danger btn-block" ng-click="logout()">logg ut</button>
         </div>
 

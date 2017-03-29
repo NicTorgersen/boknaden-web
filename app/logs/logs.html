@@ -1,0 +1,40 @@
+<div class="spinner" ng-if="showSpinner">
+    <span us-spinner="{radius:30, width:8, length: 16, color: '#96124f'}" spinner-on="showSpinner"></span>
+    <div class="spinner-backdrop"></div>
+</div>
+<div bn-profile></div>
+<div class="flyerstore">
+    <div class="flyers">
+        <div class="row">
+            <div ng-if="logs.length > 0" class="table-responsive col-md-8 col-md-offset-2">
+                <h2 style="margin-bottom: 20px;">Logs</h2>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Endpoint</th>
+                            <th>Melding</th>
+                            <th class="text-center">Status</th>
+                            <th>Dato</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="log in logs" ng-class="{'danger': log.state === 'error'}">
+                            <td>{{ log.logid }}</td>
+                            <td>{{ log.loggedfrom }}</td>
+                            <td>{{ log.message }}</td>
+                            <td class="text-center">{{ log.state }}</td>
+                            <td>{{ log.createddate | amDateFormat:'Do MMMM YYYY, H:mm:ss' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-if="logs.length === 0" class="col-md-8 col-md-offset-2">
+                <p>Ingen logger å vise.</p>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div bn-footer></div>
