@@ -68,13 +68,13 @@ p {
 }
 .profile .user {
     top: 0;
-    left: 0;
+    right: 0;
     padding: 50px 20px 12px 20px;
 }
 .profile .profile-container {
     position: fixed;
     top: 120px;
-    left: 10px;
+    right: 10px;
     width: 200px;
     padding: 20px;
     background-color: #036185;
@@ -83,7 +83,7 @@ p {
 .profile .profile-container-arrow {
     position: fixed;
     top: 105px;
-    left: 18px;
+    right: 18px;
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
@@ -293,7 +293,7 @@ p {
 }
 
 .flyerstore h2 {
-    margin-bottom: 0;
+    margin-bottom: 23px;
     border-bottom: 1px solid #fafafa;
     display: inline-block;
 }

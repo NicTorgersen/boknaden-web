@@ -39,6 +39,7 @@
     "angular-moment": "^1.0.1",
     "angular-swiper": "^0.4.0",
     "underscore": "^1.8.3",
-    "angular-spinner": "^1.0.1"
+    "angular-spinner": "^1.0.1",
+    "angular-accounting": "^1.0.1"
   }
 }

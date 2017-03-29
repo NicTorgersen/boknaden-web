@@ -24,6 +24,7 @@
             $scope.showSpinner = false
             $scope.flyer = res.data
         }, function (err) {
+            console.log(err)
             growl.error(err.toString(), {title: 'Error'})
         })
 

@@ -27,12 +27,12 @@
                             <span class="pull-right"><a href="" ng-click="go('/user/' + flyer.user.userid)">{{ flyer.user.username }}</a></span>
                         </p>
                         <div ng-show="flyer.selectedAdItem.active">
-                            <h3>{{ flyer.selectedAdItem.adItem.text }}</h3>
+                            <h3>{{ flyer.selectedAdItem.adItem.text | limitTo:15 }}{{ (flyer.selectedAdItem.adItem.text.length > 15) ? '...' : '' }}</h3>
                             <p><span class="pull-right item-price"><strong>{{ flyer.selectedAdItem.adItem.price }}</strong> kr</span></p>
                             <div class="clearfix"></div>
                         </div>
                         <div ng-hide="flyer.selectedAdItem.active">
-                            <h3 >{{ flyer.adname }}</h3>
+                            <h3 >{{ flyer.adname | limitTo:15 }}{{ (flyer.adname.length > 15) ? '...' : '' }}</h3>
                             <p><span class="pull-right item-price">totalt <strong>{{ calculateTotalPrice(flyer.aditems) }}</strong> kr</span></p>
                             <div class="clearfix"></div>
                         </div>

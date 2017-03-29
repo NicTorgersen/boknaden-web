@@ -36,10 +36,9 @@
             </div>
             <div class="salesman-body">
                 <p>Navn: {{ flyer.user.firstname }} {{ flyer.user.lastname }}</p>
-                <p>Sted: </p>
                 <p>E-post:
                     <span ng-if="isAuthenticated">{{ flyer.user.email }}</span>
-                    <span ng-if="!isAuthenticated"><a href ng-click="go('/login')">Logg inn for e-post</a></span>
+                    <span ng-if="!isAuthenticated"><a href ng-click="go('/login')">Logg inn for å se e-post</a></span>
                 </p>
             </div>
             <div class="flyer-interest">

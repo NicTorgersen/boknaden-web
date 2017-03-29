@@ -20,14 +20,21 @@
         this.create = create
 
         function get (id) {
-            var id = parseInt(id)
+            var id = parseInt(id),
+                headers = {}
+
             if (typeof(id) === 'number') {
+
+                if (AuthService.isAuthenticated()) {
+                    headers['boknaden-verify'] = AuthService.token()
+                }
+
                 return $http({
                     url: apiUrl + '/ads',
                     method: 'GET',
-                    params: { adid: parseInt(id) }
+                    params: { adid: parseInt(id) },
+                    headers: headers
                 }).then(function (res) {
-                    if (res.data.user.username === AuthService.profile().username)
                     return res
                 })
             }
@@ -85,8 +92,9 @@
                 data: {
                     token: AuthService.token(),
                     adname: flyer.adname,
+                    text: flyer.text || null,
                     courseid: flyer.course.courseid,
-                    aditems: JSON.stringify(flyer.aditems)
+                    aditems: flyer.aditems
                 }
             })
         }

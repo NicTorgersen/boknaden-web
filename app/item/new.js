@@ -18,7 +18,7 @@
         if (!AuthService.isAuthenticated())
             $location.path('/store')
 
-        $scope.flyer = { adname: '', course: {}, aditems: [{image: '', isbn: '', price: 0, text: '', description: '', isBook: false}] }
+        $scope.flyer = { adname: '', text: '', course: {}, aditems: [{image: '', isbn: '', price: 0, text: '', description: '', isBook: false}] }
         $scope.courses = []
 
         CourseService.getAll().then(function (courses) {

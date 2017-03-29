@@ -10,7 +10,8 @@
           'angular-growl',
           'angularMoment',
           'ksSwiper',
-          'angularSpinner'
+          'angularSpinner',
+          'angularAccounting'
         ])
         .config(config)
 

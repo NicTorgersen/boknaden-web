@@ -11,10 +11,13 @@
 <div class="add-flyer">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <button type="button" ng-disabled="!isValid()" ng-click="createAd()" class="btn btn-success"><i class="fa fa-fw fa-check"></i> Opprett</button>
             <div class="form-group">
                 <label for="flyer-title">Tittel</label>
                 <input type="text" id="flyer-title" class="form-control" ng-model="flyer.adname" placeholder="Tittel på annonse">
+            </div>
+            <div class="form-group">
+                <label for="flyer-title">Annonsebeskrivelse</label>
+                <textarea rows="3" type="text" ng-model="flyer.text" id="item-description" class="form-control"></textarea>
             </div>
             <div class="form-group">
                 <label for="courseSelect_reg">Linje</label>
@@ -54,12 +57,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="item-description">Nærmere beskrivelse</label>
-                                <textarea rows="3" type="text" ng-model="item.description" id="item-description" class="form-control">
+                                <textarea rows="3" type="text" ng-model="item.description" id="item-description" class="form-control"></textarea>
                             </div>
                         </form>
                     </uib-tab>
                 </uib-tabset>
             </div>
+            <button type="button" ng-disabled="!isValid()" ng-click="createAd()" class="btn btn-success"><i class="fa fa-fw fa-check"></i> Opprett</button>
         </div>
     </div>
 </div>
