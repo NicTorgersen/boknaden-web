@@ -27,7 +27,7 @@
 
             LogService.getAll().then(function (res) {
                 $scope.showSpinner = false
-                $scope.logs = res.data
+                $scope.logs = res.data.logs
             }, function (err) {
                 growl.error(err, {title: 'Error'})
             })

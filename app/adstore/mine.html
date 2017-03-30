@@ -22,7 +22,7 @@
                     <tbody>
                         <tr ng-repeat="flyer in flyers">
                             <td>{{ flyer.adid }}</td>
-                            <td>{{ flyer.adname }}</td>
+                            <td><a href="" ng-click="go('/item/' + flyer.adid)">{{ flyer.adname }}</a></td>
                             <td>{{ flyer.createddate | amDateFormat:'Do MMMM YYYY, H:mm' }}</td>
                             <td class="text-center">
                                 <i ng-if="flyer.deleted === 0" class="fa fa-check text-success"></i>

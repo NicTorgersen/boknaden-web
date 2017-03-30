@@ -20,6 +20,7 @@
 
         $scope.flyer = { adname: '', text: '', course: {}, aditems: [{image: '', isbn: '', price: 0, text: '', description: '', isBook: false}] }
         $scope.courses = []
+        $scope.activeFlyerItem = 0
 
         CourseService.getAll().then(function (courses) {
             for (var i = 0; i < courses.data.length; i++) {
@@ -60,12 +61,12 @@
         $scope.removeItem = function (idx) {
             if ($scope.flyer.aditems.length > 1)
                 $scope.flyer.aditems.splice(idx, 1)
+
         }
 
         $scope.addAdItemToFlyer = function () {
             if ($scope.flyer.aditems.length > 0) {
                 if ( JSON.stringify($scope.flyer.aditems[$scope.flyer.aditems.length - 1]) === JSON.stringify({image: '', isbn: '', price: 0, text: '', description: '', isBook: false}) ) {
-                    console.log("Objects too similar", JSON.stringify($scope.flyer.aditems[$scope.flyer.aditems.length - 1]), JSON.stringify({image: '', isbn: '', price: 0, text: '', description: '', isBook: false}))
                     return
                 }
             }
