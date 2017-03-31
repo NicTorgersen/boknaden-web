@@ -25,7 +25,7 @@
             .globalDisableCountDown(true)
             .globalPosition('bottom-right')
 
-        $locationProvider.html5Mode(false)
+        $locationProvider.html5Mode(true)
 
         // routes
         $routeProvider

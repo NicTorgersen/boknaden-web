@@ -4,20 +4,20 @@
 
     angular
         .module('boknaden')
-        .service('CourseService', [
+        .service('CampusService', [
             'apiUrl',
             '$http',
-            CourseService
+            CampusService
         ])
 
-    function CourseService(apiUrl, $http, store) {
+    function CampusService(apiUrl, $http, store) {
         this.getAll = getAll
 
         function getAll (params) {
             var params = params || {}
 
             return $http({
-                url: apiUrl + '/courses',
+                url: apiUrl + '/campuses',
                 method: 'GET',
                 params: params
             })

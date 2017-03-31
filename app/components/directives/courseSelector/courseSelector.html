@@ -1,0 +1,43 @@
+<div class="form-group">
+    <label for="universitySelect">Universitet</label>
+    <select ng-hide="loading"
+            id="universitySelect"
+            class="form-control"
+            required=""
+            ng-model="university"
+            ng-change="universityChanged(university)"
+            ng-options="uni.universityname for uni in universities track by uni.universityid">
+        <option value="" disabled="">Velg en...</option>
+    </select>
+</div>
+<div ng-if="campuses.length > 0 || campus" class="form-group fade-view">
+    <label for="campusSelect">Campus</label>
+    <select ng-hide="loading"
+            id="campusSelect"
+            class="form-control"
+            required=""
+            ng-model="campus"
+            ng-change="campusChanged(campus)"
+            ng-options="cmps.campusname for cmps in campuses track by cmps.campusid">
+        <option value="" disabled="">Velg en...</option>
+    </select>
+</div>
+<div ng-if="courses.length > 0 || Object.keys(course)>0" class="form-group fade-view">
+    <label for="courseSelect">Linje</label>
+    <select ng-hide="loading"
+            id="courseSelect"
+            class="form-control"
+            required=""
+            ng-model="course"
+            ng-change="courseChanged(course)"
+            ng-options="crs.coursename for crs in courses track by crs.courseid">
+        <option value="" disabled="">Velg en...</option>
+    </select>
+</div>
+<div ng-if="false && canSaveState()" class="save-state fade-view">
+    <div class="form-group">
+        <a href="" class="pull-right btn btn-link" ng-click="saveState()">Lagre linjevalg</a>
+        <a href="" ng-if="canRemoveState()" class="pull-right btn btn-danger" ng-click="removeState()">Slett linjevalg</a>
+    </div>
+    <div class="clearfix"></div>
+</div>

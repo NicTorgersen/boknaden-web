@@ -17,8 +17,9 @@
                 scope.authed = AuthService.isAuthenticated()
                 scope.profile = AuthService.profile()
                 scope.show = false
-                scope.goLogin = function () {
+                scope.openProfile = function () {
                     if (scope.authed) {
+                        scope.show = !scope.show
                         return
                     }
                     $location.path('/login')

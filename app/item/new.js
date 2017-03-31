@@ -10,15 +10,18 @@
             'growl',
             'AdService',
             'CourseService',
+            'CampusService',
+            'UniversityService',
             'AuthService',
             NewItemCtrl
         ])
 
-    function NewItemCtrl ($scope, store, $location, growl, AdService, CourseService, AuthService) {
+    function NewItemCtrl ($scope, store, $location, growl, AdService, CourseService, CampusService, UniversityService, AuthService) {
         if (!AuthService.isAuthenticated())
             $location.path('/store')
 
         $scope.flyer = { adname: '', text: '', course: {}, aditems: [{image: '', isbn: '', price: 0, text: '', description: '', isBook: false}] }
+        // $scope.
         $scope.courses = []
         $scope.activeFlyerItem = 0
 
@@ -64,9 +67,21 @@
 
         }
 
+        function canCreateAdItem (aditems, base) {
+            for (var i = 0; i < aditems.length; i++) {
+                if ( JSON.stringify(aditems[i]) === JSON.stringify(base) ) {
+                    return false
+                }
+            }
+
+            return true
+        }
+
+        $scope.canCreateAdItem = canCreateAdItem
+
         $scope.addAdItemToFlyer = function () {
             if ($scope.flyer.aditems.length > 0) {
-                if ( JSON.stringify($scope.flyer.aditems[$scope.flyer.aditems.length - 1]) === JSON.stringify({image: '', isbn: '', price: 0, text: '', description: '', isBook: false}) ) {
+                if ( !canCreateAdItem($scope.flyer.aditems, {image: '', isbn: '', price: 0, text: '', description: '', isBook: false}) ) {
                     return
                 }
             }

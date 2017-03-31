@@ -18,12 +18,7 @@
         $scope.isAuthenticated = AuthService.isAuthenticated()
         $scope.showSpinner = true
 
-        AdService.getAll().then(function (res) {
-            $scope.showSpinner = false
-            $scope.flyers = res
-        }, function (err) {
-            growl.error(err, {title: 'Error'})
-        })
+        reload()
 
         $scope.go = function (path) {
             $location.path(path)
@@ -53,6 +48,27 @@
 
         function calculateCustomerPrice (price) {
             $scope.priceCalculated = (price * 1.1).toFixed(2)
+        }
+
+        function reload () {
+            var filterParams = {}
+
+            if ($location.search().hasOwnProperty('course')) {
+                filterParams.courseid = $location.search().course
+            }
+
+            if ($location.search().hasOwnProperty('university')) {
+                filterParams.universityid = $location.search().university
+            }
+
+            console.log(filterParams)
+
+            AdService.getAll(filterParams).then(function (res) {
+                $scope.showSpinner = false
+                $scope.flyers = res
+            }, function (err) {
+                growl.error(err, {title: 'Error'})
+            })
         }
 
     }

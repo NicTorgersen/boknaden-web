@@ -41,10 +41,14 @@
 
         }
 
-        function getAll () {
+        function getAll (params) {
+
+            var params = params || {}
+
             return $http({
                 url: apiUrl + '/ads',
                 method: 'GET',
+                params: params,
             }).then(function (res) {
                 for (var i = 0; i<res.data.ads.length; i++) {
                     var obj = { active: false, adItem: {} }

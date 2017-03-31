@@ -30,15 +30,6 @@
             course: {},
         }
 
-        $scope.courses = []
-
-        CourseService.getAll().then(function (courses) {
-            for (var i = 0; i < courses.data.length; i++) {
-                var course = courses.data[i]
-                $scope.courses.push({courseid: course.courseid, coursename: course.coursename})
-            }
-        })
-
         $scope.user = userDefault
         $scope.activeTab = 0
 
@@ -65,6 +56,7 @@
                     growl.error('Sikker på at alt er riktig fylt inn?', { title: 'Feil' })
                 } else {
                     growl.success('Du er nå registrert. Vi sender deg en e-post.', { title: 'Grattis!' })
+                    reset()
                     $scope.activeTab = 0
                 }
             })

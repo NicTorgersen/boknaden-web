@@ -19,30 +19,21 @@
                 <label for="flyer-title">Annonsebeskrivelse</label>
                 <textarea rows="3" type="text" ng-model="flyer.text" id="item-description" class="form-control"></textarea>
             </div>
-            <div class="form-group">
-                <label for="courseSelect_reg">Linje</label>
-                <select ng-hide="loading"
-                        id="courseSelect_reg"
-                        class="form-control"
-                        required=""
-                        ng-model="flyer.course"
-                        ng-options="course.coursename for course in courses track by course.courseid">
-                    <option value="" disabled="">Velg en...</option>
-                </select>
-            </div>
+            <div course-selector course="flyer.course"></div>
 
             <div class="flyer-items">
-                <button class="btn btn-primary btn-link" ng-click="addAdItemToFlyer()"><i class="fa fa-fw fa-plus"></i> Legg til</button>
+                <button class="btn btn-primary btn-link pull-right" ng-disabled="!canCreateAdItem(flyer.aditems, {image: '', isbn: '', price: 0, text: '', description: '', isBook: false})" ng-click="addAdItemToFlyer()"><i class="fa fa-plus"></i></button>
+                <div class="clearfix"></div>
                 <uib-tabset active="activeFlyerItem" type="pills">
                     <uib-tab index="$index" heading="{{ item.text || 'Ingen tittel' }}" ng-repeat="item in flyer.aditems track by $index">
-                        <button ng-disabled="flyer.aditems.length < 2" ng-click="removeItem($index)" type="button" class="btn btn-danger btn-sm pull-right"><i class="fa fa-fw fa-remove"></i> Fjern</button>
-                        <div class="clearfix"></div>
                         <form class="" name="item-{{$index}}">
-                            <div class="checkbox">
+                            <button ng-disabled="flyer.aditems.length < 2" ng-click="removeItem($index)" type="button" class="btn btn-danger btn-sm pull-right"><i class="fa fa-fw fa-remove"></i> Slett</button>
+                            <div class="checkbox pull-left">
                                 <label>
                                     <input type="checkbox" ng-model="item.isBook" required> Bok?
                                 </label>
                             </div>
+                            <div class="clearfix"></div>
                             <div class="form-group">
                                 <label for="item-title">Tittel</label>
                                 <input type="text" id="item-title" ng-model="item.text" class="form-control">

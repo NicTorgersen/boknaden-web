@@ -31,7 +31,6 @@
                     if (response.data.success === true && !store.get('token')) {
                         growl.success('Successful authentication!', {title: 'Authenticated'})
                         store.set('token', response.data.token)
-                        store.set('profile', jwtHelper.decodeToken(response.data.token))
                     }
 
                     return response.data
@@ -50,8 +49,7 @@
         }
 
         function profile () {
-            var token   = store.get('token'),
-                profile = store.get('profile')
+            var token   = store.get('token')
 
             if (token) {
                 var profile = jwtHelper.decodeToken(token)
