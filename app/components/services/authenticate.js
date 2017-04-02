@@ -42,6 +42,11 @@
             var token = store.get('token')
 
             if (typeof token === 'string') {
+                if (jwtHelper.isTokenExpired(token)) {
+                    store.remove('token')
+                    growl.info('Vennligst logg inn på nytt.', { title: 'Du er blitt logget ut' })
+                    return false
+                }
                 return true
             }
 
