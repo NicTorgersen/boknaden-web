@@ -3,7 +3,7 @@
 
     angular
         .module('boknaden')
-        .controller('ItemCtrl', [
+        .controller('UserCtrl', [
             '$scope',
             '$routeParams',
             'store',
@@ -11,11 +11,11 @@
             'growl',
             'UserService',
             'AuthService',
-            AdStoreCtrl
+            UserCtrl
         ])
 
-    function AdStoreCtrl ($scope, $routeParams, store, $location, growl, UserService, AuthService) {
-        $scope.flyer = {}
+    function UserCtrl ($scope, $routeParams, store, $location, growl, UserService, AuthService) {
+        $scope.user = {}
         $scope.isAuthenticated = AuthService.isAuthenticated()
         $scope.showSpinner = true
 
@@ -23,10 +23,9 @@
             $location.path(path)
         }
 
-        UserService.get($routeParams.itemId).then(function (res) {
+        UserService.get($routeParams.username).then(function (res) {
             $scope.showSpinner = false
-            $scope.flyer = res.data
-            console.log(res.data)
+            $scope.user = res.data
         }, function (err) {
             console.log(err)
             growl.error(err, {title: 'Error'})

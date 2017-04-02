@@ -15,9 +15,9 @@
         ])
         .config(config)
 
-    config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider', 'growlProvider']
+    config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider', 'growlProvider', 'usSpinnerConfigProvider']
 
-    function config($routeProvider, $locationProvider, $httpProvider, $compileProvider, $growlProvider) {
+    function config($routeProvider, $locationProvider, $httpProvider, $compileProvider, $growlProvider, usSpinnerConfigProvider) {
 
         $growlProvider
             .globalTimeToLive(2500)
@@ -45,6 +45,10 @@
                 templateUrl: 'app/adstore/adstore.html',
                 controller: 'AdStoreCtrl',
             })
+            .when('/user/:username', {
+                templateUrl: 'app/user/user.html',
+                controller: 'UserCtrl',
+            })
             .when('/item/new', {
                 templateUrl: 'app/item/new.html',
                 controller: 'NewItemCtrl',
@@ -67,6 +71,8 @@
 
         $httpProvider.interceptors.push('authInterceptor')
         $httpProvider.defaults.headers.delete = { "Content-Type": "application/json;charset=utf-8" }
+
+        usSpinnerConfigProvider.setDefaults({color: '#0075a1', radius:30, width:8, length: 16})
 
     }
 

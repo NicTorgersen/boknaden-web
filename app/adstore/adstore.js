@@ -57,6 +57,10 @@
                 filterParams.courseid = $location.search().course
             }
 
+            if ($location.search().hasOwnProperty('campus')) {
+                filterParams.campusid = $location.search().campus
+            }
+
             if ($location.search().hasOwnProperty('university')) {
                 filterParams.universityid = $location.search().university
             }

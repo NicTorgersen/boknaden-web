@@ -7,10 +7,11 @@
         .factory('UserService', [
             'apiUrl',
             '$http',
+            'AuthService',
             UserService
         ])
 
-    function UserService (apiUrl, $http) {
+    function UserService (apiUrl, $http, AuthService) {
 
         return {
             get: get,
@@ -22,12 +23,18 @@
         }
 
         function get (id) {
-            var id = parseInt(id)
-            if (typeof(id) === 'number') {
+            let headers = {}
+
+            if (typeof(id) === 'string') {
+                if (AuthService.isAuthenticated()) {
+                    headers['boknaden-verify'] = AuthService.token()
+                }
+
                 return $http({
                     url: apiUrl + '/users',
                     method: 'GET',
-                    params: {userid: parseInt(id)}
+                    params: {username: id},
+                    headers: headers
                 })
             }
         }

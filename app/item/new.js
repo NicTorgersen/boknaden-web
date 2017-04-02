@@ -34,7 +34,7 @@
 
         $scope.isValid = function () {
             if ($scope.flyer.adname.length > 4 &&
-                $scope.flyer.course.hasOwnProperty('courseid') &&
+                ($scope.flyer.course && $scope.flyer.course.hasOwnProperty('courseid')) &&
                 $scope.flyer.aditems.length > 0) {
 
 

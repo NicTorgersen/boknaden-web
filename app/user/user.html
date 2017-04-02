@@ -1,0 +1,30 @@
+<div class="spinner" ng-if="showSpinner">
+    <span us-spinner="" spinner-on="showSpinner"></span>
+    <div class="spinner-backdrop"></div>
+</div>
+<div bn-profile></div>
+<div class="view">
+    <h2>{{ user.username.charAt(0).toUpperCase() + user.username.substr(1) }} har {{ user.ads.length }} annonser.</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tittel</th>
+                <th>Linje</th>
+                <th>Campus</th>
+                <th>Høgskole</th>
+                <th>Dato</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="flyer in user.ads">
+                <td>{{ flyer.adid }}</td>
+                <td><a href="" ng-click="go('/item/' + flyer.adid)">{{ flyer.adname }}</a></td>
+                <td><a ng-href="/store?course={{flyer.course.courseid}}">{{ flyer.course.coursename }}</a></td>
+                <td><a ng-href="/store?campus={{flyer.course.campus.campusid}}">{{ flyer.course.campus.campusname }}</a></td>
+                <td><a ng-href="/store?university={{flyer.course.campus.university.universityid}}">{{ flyer.course.campus.university.universityname }}</a></td>
+                <td>{{ flyer.createddate | amDateFormat:'Do MMMM YYYY, H:mm' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
