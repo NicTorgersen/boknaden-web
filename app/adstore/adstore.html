@@ -23,7 +23,7 @@
                     </header>
                     <div class="flyer-content" ng-click="go('/item/' + flyer.adid)">
                         <p class="flyer-aside">
-                            <em>postet <span am-time-ago="flyer.createddate"></span></em>
+                            <em><span am-time-ago="flyer.createddate"></span></em>
                             <span class="pull-right"><a ng-href="{{ '/user/' + flyer.user.username }}">{{ flyer.user.username }}</a></span>
                         </p>
                         <div ng-show="flyer.selectedAdItem.active">

@@ -8,7 +8,6 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Tittel</th>
                 <th class="text-center">Aktiv</th>
                 <th>Linje</th>
@@ -19,7 +18,6 @@
         </thead>
         <tbody>
             <tr ng-repeat="flyer in user.ads">
-                <td>{{ flyer.adid }}</td>
                 <td>
                     <a ng-if="flyer.deleted === 0" ng-href="'/item/' + flyer.adid">{{ flyer.adname }}</a>
                     <span ng-if="flyer.deleted === 1">{{ flyer.adname }}</span>

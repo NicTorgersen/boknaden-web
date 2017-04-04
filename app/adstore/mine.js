@@ -21,6 +21,7 @@
         reload()
 
         $scope.flyers = []
+        $scope.activeFlyer = $location.search().active || null
         $scope.showSpinner = true
 
         $scope.deleteAd = function (adid) {

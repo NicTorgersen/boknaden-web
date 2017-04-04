@@ -65,8 +65,6 @@
                 filterParams.universityid = $location.search().university
             }
 
-            console.log(filterParams)
-
             AdService.getAll(filterParams).then(function (res) {
                 $scope.showSpinner = false
                 $scope.flyers = res

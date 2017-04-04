@@ -43,11 +43,11 @@
                 </p>
             </div>
             <div class="flyer-interest" ng-if="!flyer.isowner">
-                <p ng-if="!isAuthenticated"><button type="button" ng-click="go('/login')" class="btn btn-lg btn-success">Logg inn</button> for å melde interesse</p>
+                <p ng-if="!isAuthenticated"><a ng-href="{{ '/login?return=/item/' + flyer.adid }}" class="btn btn-lg btn-success">Logg inn</a> for å melde interesse</p>
                 <p ng-if="isAuthenticated"><button ng-disabled="true" type="button" class="btn btn-lg btn-primary">Meld interesse</button></p>
             </div>
             <div class="flyer-interest" ng-if="flyer.isowner">
-                <p ng-if="isAuthenticated"><a href="/item/mine">Dette er din annonse.</a></p>
+                <p ng-if="isAuthenticated"><a ng-href="{{ '/item/mine?active=' + flyer.adid}}">Dette er din annonse.</a></p>
             </div>
         </div>
     </div>

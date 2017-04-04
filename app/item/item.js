@@ -35,8 +35,10 @@
 
         function calculateTotalPrice (aditems) {
             let price = 0
-            for (var i = 0; i < aditems.length; i++) {
-                price += aditems[i].price
+            if (aditems) {
+                for (var i = 0; i < aditems.length; i++) {
+                    price += aditems[i].price
+                }
             }
             return price
         }

@@ -388,6 +388,13 @@ p {
     color: #fff;
 }
 
+.table-hover .active-flyer-highlight:hover {
+    background-color: rgba(215, 237, 245, 1);
+}
+.active-flyer-highlight {
+    background-color: rgba(215, 237, 245, .7);
+}
+
 .add-flyer {
     margin-top: 110px;
     margin-bottom: 10px;

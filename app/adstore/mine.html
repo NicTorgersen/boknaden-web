@@ -8,7 +8,7 @@
         <div class="row">
             <div ng-if="flyers.length > 0" class="table-responsive col-md-8 col-md-offset-2">
                 <h2 style="margin-bottom: 20px;">Dine annonser</h2>
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -23,7 +23,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="flyer in flyers">
+                        <tr ng-repeat="flyer in flyers" ng-class="{'active-flyer-highlight': flyer.adid == activeFlyer}">
                             <td>{{ flyer.adid }}</td>
                             <td><a ng-href="/item/{{flyer.adid}}">{{ flyer.adname }}</a></td>
                             <td><a ng-href="/store?course={{flyer.course.courseid}}">{{ flyer.course.coursename }}</a></td>
