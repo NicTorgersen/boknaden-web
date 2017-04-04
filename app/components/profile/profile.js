@@ -22,7 +22,9 @@
                         scope.show = !scope.show
                         return
                     }
-                    $location.path('/login')
+                    var location = $location.url()
+
+                    $location.path('/login').search({return: location})
                 }
                 scope.go = function (path) {
                     $location.path(path)

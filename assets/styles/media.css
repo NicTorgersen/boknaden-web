@@ -18,3 +18,13 @@
         box-shadow: none;
     }
 }
+
+@media all and (max-width: 375px) {
+    .site-header .site-title img {
+        height: 20px;
+        margin-right: -5px;
+    }
+    .site-header .site-title a {
+        font-size: 28px;
+    }
+}

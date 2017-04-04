@@ -39,12 +39,15 @@
                 <p>Campus: <a ng-href="{{ '/store?campus='+flyer.course.campus.campusid }}">{{ flyer.course.campus.campusname }}</a></p>
                 <p>E-post:
                     <span ng-if="isAuthenticated">{{ flyer.user.email }}</span>
-                    <span ng-if="!isAuthenticated"><a href ng-click="go('/login')">Logg inn for å se e-post</a></span>
+                    <span ng-if="!isAuthenticated"><a ng-href="{{ '/login?return=/item/' + flyer.adid }}">Logg inn for å se e-post</a></span>
                 </p>
             </div>
-            <div class="flyer-interest">
+            <div class="flyer-interest" ng-if="!flyer.isowner">
                 <p ng-if="!isAuthenticated"><button type="button" ng-click="go('/login')" class="btn btn-lg btn-success">Logg inn</button> for å melde interesse</p>
                 <p ng-if="isAuthenticated"><button ng-disabled="true" type="button" class="btn btn-lg btn-primary">Meld interesse</button></p>
+            </div>
+            <div class="flyer-interest" ng-if="flyer.isowner">
+                <p ng-if="isAuthenticated"><a href="/item/mine">Dette er din annonse.</a></p>
             </div>
         </div>
     </div>

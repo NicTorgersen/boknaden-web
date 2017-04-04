@@ -38,19 +38,23 @@
 
                     <form class="register-form" name="register" ng-changed="console.log(register.$error)">
                         <div class="form-group">
+                            <i class="pull-right fa fa-asterisk text-danger"></i>
                             <label for="emailUsername_reg">Brukernavn</label>
                             <input type="text" id="emailUsername_reg" ng-model="user.username" class="form-control bn-input" required autofocus="">
                         </div>
                         <div course-selector course="user.course"></div>
                         <div class="form-group">
+                            <i class="pull-right fa fa-asterisk text-danger"></i>
                             <label for="emailUsername_reg">E-post</label>
                             <input type="email" id="emailUsername_reg" ng-model="user.email" class="form-control bn-input" required autofocus="">
                         </div>
                         <div class="form-group">
+                            <i class="pull-right fa fa-asterisk text-danger"></i>
                             <label for="firstname_reg">Fornavn</label>
                             <input type="text" id="firstname_reg" ng-model="user.firstname" class="form-control bn-input" required>
                         </div>
                         <div class="form-group">
+                            <i class="pull-right fa fa-asterisk text-danger"></i>
                             <label for="lastname_reg">Etternavn</label>
                             <input type="text" id="lastname_reg" ng-model="user.lastname" class="form-control bn-input" required>
                         </div>

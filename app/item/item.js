@@ -29,7 +29,8 @@
         })
 
         $scope.go = function (path) {
-            $location.path(path)
+            var location = $location.url()
+            $location.path(path).search({return: location})
         }
 
         function calculateTotalPrice (aditems) {

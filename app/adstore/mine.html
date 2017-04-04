@@ -25,7 +25,7 @@
                     <tbody>
                         <tr ng-repeat="flyer in flyers">
                             <td>{{ flyer.adid }}</td>
-                            <td><a href="" ng-click="go('/item/' + flyer.adid)">{{ flyer.adname }}</a></td>
+                            <td><a ng-href="/item/{{flyer.adid}}">{{ flyer.adname }}</a></td>
                             <td><a ng-href="/store?course={{flyer.course.courseid}}">{{ flyer.course.coursename }}</a></td>
                             <td><a ng-href="/store?campus={{flyer.course.campus.campusid}}">{{ flyer.course.campus.campusname }}</a></td>
                             <td><a ng-href="/store?university={{flyer.course.campus.university.universityid}}">{{ flyer.course.campus.university.universityname }}</a></td>

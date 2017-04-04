@@ -19,6 +19,8 @@
             forgotPassword: forgotPassword,
             resetPassword: resetPassword,
             verifyCode: verifyCode,
+            verifyUserCode: verifyUserCode,
+            verifyUser: verifyUser,
             create: create,
         }
 
@@ -33,7 +35,7 @@
                 return $http({
                     url: apiUrl + '/users',
                     method: 'GET',
-                    params: {username: id},
+                    params: { username: id },
                     headers: headers
                 })
             }
@@ -50,7 +52,7 @@
             return $http({
                 url: apiUrl + '/forgotpassword',
                 method: 'POST',
-                data: {username: username}
+                data: { username: username }
             })
         }
 
@@ -58,7 +60,7 @@
             return $http({
                 url: apiUrl + '/changepassword',
                 method: 'POST',
-                data: {passphrase: passphrase}
+                data: { passphrase: passphrase }
             })
         }
 
@@ -66,7 +68,23 @@
             return $http({
                 url: apiUrl + '/forgotpassword',
                 method: 'GET',
-                params: {code: code}
+                params: { code: code }
+            })
+        }
+
+        function verifyUserCode (code) {
+            return $http({
+                url: apiUrl + '/verifyuser',
+                method: 'GET',
+                params: { verificationcode: code }
+            })
+        }
+
+        function verifyUser (code) {
+            return $http({
+                url: apiUrl + '/verifyuser',
+                method: 'POST',
+                data: { verificationcode: code }
             })
         }
 

@@ -41,7 +41,8 @@
             if ($scope.user.username.length > 0 && $scope.user.pass.length > 0) {
                 if ($scope.user.username === userDefault.username && $scope.user.pass === userDefault.pass) {
                     AuthService.verify($scope.user.username, $scope.user.pass).then(function (response) {
-                        $location.path('/store')
+                        var path = $location.search().return || '/store'
+                        $location.path(path).search({})
                     }, function (err) {
                         growl.error('Feil brukernavn eller passord', { title: 'Feil' })
                     })
@@ -53,7 +54,7 @@
             console.log(user)
             UserService.create(user).then(function (response) {
                 if (response.data.err) {
-                    growl.error('Sikker på at alt er riktig fylt inn?', { title: 'Feil' })
+                    growl.error(response.data.err, { title: 'Feil' })
                 } else {
                     growl.success('Du er nå registrert. Vi sender deg en e-post.', { title: 'Grattis!' })
                     reset()

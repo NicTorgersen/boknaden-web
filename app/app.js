@@ -41,6 +41,10 @@
                 templateUrl: 'app/login/resetpassword.html',
                 controller: 'ResetPasswordCtrl',
             })
+            .when('/verify/:verificationcode', {
+                templateUrl: 'app/user/verify.html',
+                controller: 'VerifyUserCtrl',
+            })
             .when('/store', {
                 templateUrl: 'app/adstore/adstore.html',
                 controller: 'AdStoreCtrl',
