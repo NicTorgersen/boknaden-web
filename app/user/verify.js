@@ -19,8 +19,6 @@
             return
         }
 
-        console.log("hello")
-
         if ($routeParams.hasOwnProperty('verificationcode')) {
             var verificationcode = $routeParams.verificationcode
 
@@ -30,16 +28,22 @@
                     UserService.verifyUser(verificationcode).then(function (res) {
                         if (res.data.success) {
                             growl.success('Du er nå verifisert! Vennligst logg inn på nytt.')
+                            $location.path('/store')
                         }
                     }, function (err) {
                         console.log(err)
+                        growl.error('Det skjedde en feil. Send oss en melding med feilmelding V01')
+                        $location.path('/store')
                     })
 
+                } else {
+                    $location.path('/store')
                 }
             })
+        } else {
+            $location.path('/store')
         }
 
-        $location.path('/store')
 
     }
 
