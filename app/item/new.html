@@ -36,14 +36,15 @@
                                 </label>
                             </div>
                             <div class="clearfix"></div>
+                            <div class="form-group" ng-show="item.isBook">
+                                <label for="item-isbn">ISBN <a href ng-click="showISBNHelpText = !showISBNHelpText">?</a></label>
+                                <p class="bg-info" ng-show="showISBNHelpText">ISBN er en 10 eller 13-sifret kode som finnes på baksiden eller første siden i en bok. Eksempel: 978-82-450-0128-0. Du trenger ikke å fylle inn bindestreker.</p>
+                                <input type="number" id="item-isbn" ng-model="item.isbn" class="form-control">
+                            </div>
                             <div class="form-group">
                                 <label for="item-title">Tittel</label>
                                 <i class="fa fa-asterisk text-danger pull-right"></i>
                                 <input type="text" id="item-title" ng-model="item.text" class="form-control">
-                            </div>
-                            <div class="form-group" ng-show="item.isBook">
-                                <label for="item-isbn">ISBN</label>
-                                <input type="number" id="item-isbn" ng-model="item.isbn" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="item-price">Pris (NOK)</label>

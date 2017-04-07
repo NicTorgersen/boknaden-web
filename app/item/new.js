@@ -7,6 +7,7 @@
             '$scope',
             'store',
             '$location',
+            '$timeout',
             'growl',
             'AdService',
             'CourseService',
@@ -16,12 +17,12 @@
             NewItemCtrl
         ])
 
-    function NewItemCtrl ($scope, store, $location, growl, AdService, CourseService, CampusService, UniversityService, AuthService) {
-        if (!AuthService.isAuthenticated())
+    function NewItemCtrl ($scope, store, $location, $timeout, growl, AdService, CourseService, CampusService, UniversityService, AuthService) {
+        if (!AuthService.isAuthenticated() || AuthService.profile().verified === 0)
             $location.path('/store')
 
-        $scope.flyer = { adname: '', text: '', course: {}, aditems: [{image: '', isbn: '', price: 0, text: '', description: '', isBook: false}] }
-        // $scope.
+        $scope.flyer = { adname: '', text: '', course: {}, aditems: [{image: '', isbn: '', price: 0, text: '', description: '', isBook: true}] }
+        $scope.showISBNHelpText = false
         $scope.courses = []
         $scope.activeFlyerItem = 0
 
@@ -40,7 +41,7 @@
 
                 for (var i = 0; i < $scope.flyer.aditems.length; i++) {
                     var item = $scope.flyer.aditems[i]
-                    if (item.isBook && item.isbn.length > 10) {
+                    if (item.isBook && item.isbn.length < 10) {
                         return false
                     }
                     if (item.text.length < 4) {
@@ -71,6 +72,13 @@
             for (var i = 0; i < aditems.length; i++) {
                 if ( JSON.stringify(aditems[i]) === JSON.stringify(base) ) {
                     return false
+                } else {
+                    if (aditems[i].isBook && aditems[i].isbn.length < 10) {
+                        return false
+                    }
+                    if (aditems[i].text.length < 4) {
+                        return false
+                    }
                 }
             }
 
@@ -81,12 +89,15 @@
 
         $scope.addAdItemToFlyer = function () {
             if ($scope.flyer.aditems.length > 0) {
-                if ( !canCreateAdItem($scope.flyer.aditems, {image: '', isbn: '', price: 0, text: '', description: '', isBook: false}) ) {
+                if ( !canCreateAdItem($scope.flyer.aditems, {image: '', isbn: '', price: 0, text: '', description: '', isBook: true}) ) {
                     return
                 }
             }
 
-            $scope.flyer.aditems.push({image: '', isbn: '', price: 0, text: '', description: '', isBook: false})
+            $scope.flyer.aditems.push({image: '', isbn: '', price: 0, text: '', description: '', isBook: true})
+            $timeout(function () {
+                $scope.activeFlyerItem = ($scope.flyer.aditems.length - 1)
+            }, 10);
         }
 
 

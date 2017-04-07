@@ -20,7 +20,7 @@
                 <p class="description" ng-if="!flyer.text"><em>Ingen beskrivelse.</em></p>
 
                 <div class="row">
-                    <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-3">
+                    <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-4 text-center">
                         <img width="240px" src="http://loremflickr.com/315/300?random={{aditem.aditemid}}" alt="">
                         <p class="text-center"><span class="text-boknaden">{{ aditem.price }} kr</span></p>
                         <h3 class="text-center">{{ aditem.text }}</h3>

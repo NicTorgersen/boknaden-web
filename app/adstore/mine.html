@@ -11,7 +11,6 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Tittel</th>
                             <th>Linje</th>
                             <th>Campus</th>
@@ -24,7 +23,6 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="flyer in flyers" ng-class="{'active-flyer-highlight': flyer.adid == activeFlyer}">
-                            <td>{{ flyer.adid }}</td>
                             <td><a ng-href="/item/{{flyer.adid}}">{{ flyer.adname }}</a></td>
                             <td><a ng-href="/store?course={{flyer.course.courseid}}">{{ flyer.course.coursename }}</a></td>
                             <td><a ng-href="/store?campus={{flyer.course.campus.campusid}}">{{ flyer.course.campus.campusname }}</a></td>

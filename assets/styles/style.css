@@ -85,17 +85,24 @@ p {
     top: 0;
     right: 0;
     padding: 50px 20px 12px 20px;
+    z-index: 11;
 }
-.profile .profile-container {
+.profile-container {
     position: fixed;
-    top: 120px;
-    right: 10px;
+    top: -250px;
+    right: 0;
     width: 200px;
     padding: 20px;
     background-color: #036185;
-    border-radius: 3px;
+    border-radius: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    z-index: 9;
 }
-.profile .profile-container-arrow {
+.profile-container.active {
+    top: 100px;
+}
+/*.profile .profile-container-arrow {
     position: fixed;
     top: 105px;
     right: 18px;
@@ -104,7 +111,7 @@ p {
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 15px solid #036185;
-}
+}*/
 
 .main-navigation {
     border-top: 1px solid #820d43;
@@ -356,6 +363,9 @@ p {
     padding-right: 0;
     margin-bottom: 15px;
 }
+.flyers .flyer-container .swiper-container {
+    background: rgba(224, 224, 224, 0.2);
+}
 .flyers .flyer-container header {
     min-height: 259px;
     height: 259px;
@@ -415,7 +425,7 @@ p {
 }
 
 .line {
-    border-bottom: 2px solid #317d94;/*#820d43;*/
+    border-bottom: 3px solid #0075a1;
     margin: 15px 0;
 }
 
