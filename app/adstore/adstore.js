@@ -35,7 +35,7 @@
         }
 
         $scope.calculateTotalPrice = function (aditems) {
-            let price = 0
+            var price = 0
             for (var i = 0; i < aditems.length; i++) {
                 price += aditems[i].price
             }

@@ -25,7 +25,7 @@
         }
 
         function get (id) {
-            let headers = {}
+            var headers = {}
 
             if (typeof(id) === 'string') {
                 if (AuthService.isAuthenticated()) {

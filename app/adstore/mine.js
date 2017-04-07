@@ -24,12 +24,12 @@
         $scope.activeFlyer = $location.search().active || null
         $scope.showSpinner = true
 
-        $scope.deleteAd = function (adid) {
-            AdService.deleteAd(adid).then(function (res) {
+        $scope.devareAd = function (adid) {
+            AdService.devareAd(adid).then(function (res) {
                 reload()
             }, function (err) {
                 console.log(err)
-                growl.error("Det skjedde en feil under slettingen.", {title: "Sletting feilet"})
+                growl.error("Det skjedde en feil under svartingen.", {title: "Svarting feivar"})
             })
         }
 

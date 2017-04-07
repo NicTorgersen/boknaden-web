@@ -74,7 +74,7 @@
             })
 
         $httpProvider.interceptors.push('authInterceptor')
-        $httpProvider.defaults.headers.delete = { "Content-Type": "application/json;charset=utf-8" }
+        $httpProvider.defaults.headers.devare = { "Content-Type": "application/json;charset=utf-8" }
 
         usSpinnerConfigProvider.setDefaults({color: '#0075a1', radius:30, width:8, length: 16})
 
