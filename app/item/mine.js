@@ -24,12 +24,12 @@
         $scope.activeFlyer = $location.search().active || null
         $scope.showSpinner = true
 
-        $scope.devareAd = function (adid) {
-            AdService.devareAd(adid).then(function (res) {
+        $scope.deleteAd = function (adid) {
+            AdService.deleteAd(adid).then(function (res) {
                 reload()
             }, function (err) {
                 console.log(err)
-                growl.error("Det skjedde en feil under svartingen.", {title: "Svarting feivar"})
+                growl.error("Det skjedde en feil under slettingen.", {title: "Sletting feilet"})
             })
         }
 
@@ -39,10 +39,6 @@
 
         function setActiveAdItem (flyer, aditem) {
             flyer.selectedAdItem.adItem = aditem
-        }
-
-        function calculateCustomerPrice (price) {
-            $scope.priceCalculated = (price * 1.1).toFixed(2)
         }
 
         function reload () {

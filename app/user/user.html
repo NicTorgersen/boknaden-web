@@ -3,34 +3,36 @@
     <div class="spinner-backdrop"></div>
 </div>
 <div bn-profile></div>
-<div class="view">
-    <h2>{{ user.username.charAt(0).toUpperCase() + user.username.substr(1) }} har {{ user.ads.length }} annonser.</h2>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Tittel</th>
-                <th class="text-center">Aktiv</th>
-                <th>Linje</th>
-                <th>Campus</th>
-                <th>Høgskole</th>
-                <th>Dato</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="flyer in user.ads">
-                <td>
-                    <a ng-if="flyer.deleted === 0" ng-href="'/item/' + flyer.adid">{{ flyer.adname }}</a>
-                    <span ng-if="flyer.deleted === 1">{{ flyer.adname }}</span>
-                </td>
-                <td class="text-center">
-                    <i ng-if="flyer.deleted === 0" class="fa fa-check text-success"></i>
-                    <i ng-if="flyer.deleted === 1" class="fa fa-remove text-danger"></i>
-                </td>
-                <td><a ng-href="/store?course={{flyer.course.courseid}}">{{ flyer.course.coursename }}</a></td>
-                <td><a ng-href="/store?campus={{flyer.course.campus.campusid}}">{{ flyer.course.campus.campusname }}</a></td>
-                <td><a ng-href="/store?university={{flyer.course.campus.university.universityid}}">{{ flyer.course.campus.university.universityname }}</a></td>
-                <td>{{ flyer.createddate | amDateFormat:'Do MMMM YYYY, H:mm' }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="row">
+    <div class="view col-md-8 col-md-offset-2">
+        <h2>{{ user.username.charAt(0).toUpperCase() + user.username.substr(1) }} har lagt ut {{ user.ads.length }} {{ (user.ads.length == 1) ? 'annonse' : 'annonser' }}.</h2>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Tittel</th>
+                    <th class="text-center">Aktiv</th>
+                    <th>Linje</th>
+                    <th>Campus</th>
+                    <th>Høgskole</th>
+                    <th>Dato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="flyer in user.ads">
+                    <td>
+                        <a ng-if="flyer.deleted === 0" ng-href="/item/{{ flyer.adid }}">{{ flyer.adname }}</a>
+                        <span ng-if="flyer.deleted === 1">{{ flyer.adname }}</span>
+                    </td>
+                    <td class="text-center">
+                        <i ng-if="flyer.deleted === 0" class="fa fa-check text-success"></i>
+                        <i ng-if="flyer.deleted === 1" class="fa fa-remove text-danger"></i>
+                    </td>
+                    <td><a ng-href="/store?course={{flyer.course.courseid}}">{{ flyer.course.coursename }}</a></td>
+                    <td><a ng-href="/store?campus={{flyer.course.campus.campusid}}">{{ flyer.course.campus.campusname }}</a></td>
+                    <td><a ng-href="/store?university={{flyer.course.campus.university.universityid}}">{{ flyer.course.campus.university.universityname }}</a></td>
+                    <td>{{ flyer.createddate | amDateFormat:'Do MMMM YYYY, H:mm' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -1,0 +1,40 @@
+<div class="spinner" ng-if="showSpinner">
+    <span us-spinner="" spinner-on="showSpinner"></span>
+    <div class="spinner-backdrop"></div>
+</div>
+<div bn-profile></div>
+<div class="row view profile-page">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
+            <div class="profile-image-container text-center">
+                <div class="profile-image">
+                    <i class="fa fa-user"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <p class="text-muted">Fornavn</p>
+            <input type="text" class="form-control" ng-model="user.firstname">
+        </div>
+        <div class="col-md-12">
+            <p class="text-muted">Etternavn</p>
+            <input type="text" class="form-control" ng-model="user.lastname">
+        </div>
+        <div class="col-md-12">
+            <p class="text-muted">Brukernavn</p>
+            <p>{{ user.username }}</p>
+        </div>
+        <div class="col-md-12">
+            <p class="text-muted">Telefonnummer</p>
+            <input type="text" class="form-control" ng-model="user.phone">
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success" ng-click="updateProfile()">Lagre</button>
+            <div class="pull-right">
+                <button type="button" class="btn btn-primary" ng-disabled="true">Endre passord</button>
+                <button type="button" class="btn btn-primary" ng-disabled="true">Endre e-post</button>
+            </div>
+        </div>
+    </div>
+</div>

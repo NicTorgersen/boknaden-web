@@ -16,7 +16,7 @@
         this.get = get
         this.getAll = getAll
         this.getAdsForUser = getAdsForUser
-        this.devareAd = devareAd
+        this.deleteAd = deleteAd
         this.create = create
 
         function get (id) {
@@ -76,10 +76,10 @@
             })
         }
 
-        function devareAd (adid) {
+        function deleteAd (adid) {
             return $http({
                 url: apiUrl + '/ads',
-                method: 'DEvarE',
+                method: 'DELETE',
                 data: {
                     adid: adid
                 },

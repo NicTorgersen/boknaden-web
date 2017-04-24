@@ -49,21 +49,33 @@
                 templateUrl: 'app/adstore/adstore.html',
                 controller: 'AdStoreCtrl',
             })
+            .when('/user/profile', {
+                templateUrl: 'app/user/profile/profile.html',
+                controller: 'ProfileCtrl',
+            })
             .when('/user/:username', {
                 templateUrl: 'app/user/user.html',
                 controller: 'UserCtrl',
+            })
+            .when('/user/interests', {
+                templateUrl: 'app/user/interests.html',
+                controller: 'InterestsCtrl'
             })
             .when('/item/new', {
                 templateUrl: 'app/item/new.html',
                 controller: 'NewItemCtrl',
             })
             .when('/item/mine', {
-                templateUrl: 'app/adstore/mine.html',
+                templateUrl: 'app/item/mine.html',
                 controller: 'MyAdsCtrl',
             })
             .when('/item/:itemId', {
                 templateUrl: 'app/item/item.html',
                 controller: 'ItemCtrl',
+            })
+            .when('/item/interest/:itemId', {
+                templateUrl: 'app/interest/interest.html',
+                controller: 'InterestCtrl',
             })
             .when('/logs', {
                 templateUrl: 'app/logs/logs.html',

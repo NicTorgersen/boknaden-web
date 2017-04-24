@@ -10,7 +10,7 @@
             CourseService
         ])
 
-    function CourseService(apiUrl, $http, store) {
+    function CourseService(apiUrl, $http) {
         this.getAll = getAll
 
         function getAll (params) {

@@ -26,7 +26,7 @@
             <div class="flyer-items">
                 <h4>Produkter <button class="btn btn-primary btn-link" ng-disabled="!canCreateAdItem(flyer.aditems, {image: '', isbn: '', price: 0, text: '', description: '', isBook: false})" ng-click="addAdItemToFlyer()"><i class="fa fa-fw fa-plus-square"></i> nytt produkt</button></h4>
                 <div class="clearfix"></div>
-                <uib-tabset active="activeFlyerItem" type="pills">
+                <uib-tabset active="activeFlyerItem">
                     <uib-tab index="$index" heading="{{ (item.text | limitTo:6) || 'Ingen tittel' }}{{ (item.text.length > 6) ? '...' : '' }}" ng-repeat="item in flyer.aditems track by $index">
                         <form class="" name="item-{{$index}}">
                             <button ng-disabled="flyer.aditems.length < 2" ng-click="removeItem($index)" type="button" class="btn btn-danger btn-sm pull-right"><i class="fa fa-fw fa-trash"></i></button>

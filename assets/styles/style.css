@@ -89,7 +89,7 @@ p {
 }
 .profile-container {
     position: fixed;
-    top: -250px;
+    top: -270px;
     right: 0;
     width: 200px;
     padding: 20px;
@@ -422,6 +422,24 @@ p {
 }
 .flyer-items form {
     margin-top: 20px;
+}
+
+.profile-page .profile-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    margin: 0 auto;
+    background: #0075a1;
+}
+.profile-page .profile-image-container i {
+    font-size: 94px;
+    color: #fafafa;
+}
+.profile-page p {
+    margin: 15px 0 0 0;
+}
+.profile-page button {
+    margin-top: 15px;
 }
 
 .line {
