@@ -6,14 +6,15 @@
 <div class="flyerstore">
     <div class="flyers">
         <div class="row">
-            <div ng-if="logs.length > 0" class="table-responsive col-md-8 col-md-offset-2">
+            <div class="table-responsive col-md-8 col-md-offset-2">
                 <h2 style="margin-bottom: 20px;">
                     Logs
                     <button type="button" class="btn btn-primary" ng-disabled="!context.type" ng-click="changeType(false)">Both</button>
                     <button type="button" class="btn btn-danger" ng-disabled="context.type === 'error'" ng-click="changeType('error')">Error</button>
                     <button type="button" class="btn btn-info" ng-disabled="context.type === 'info'" ng-click="changeType('info')">Info</button>
                 </h2>
-                <table class="table table-bordered table-striped">
+                <p ng-if="logs.length === 0">Ingen logger å vise.</p>
+                <table ng-if="logs.length > 0" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -34,9 +35,6 @@
                     </tbody>
                 </table>
                 <ul uib-pager next-text="Neste side" previous-text="Forrige side" total-items="context.totalItems" ng-model="context.page"></ul>
-            </div>
-            <div ng-if="logs.length === 0" class="col-md-8 col-md-offset-2">
-                <p>Ingen logger å vise.</p>
             </div>
         </div>
 
