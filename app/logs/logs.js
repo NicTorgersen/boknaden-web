@@ -14,8 +14,14 @@
         ])
 
     function LogsCtrl ($scope, store, $location, growl, LogService, AuthService) {
+        if (!AuthService.isAuthenticated()) {
+            $location.path('/store')
+            return
+        }
+
         if (AuthService.profile().isadmin !== 1) {
             $location.path('/store')
+            return
         }
 
         $scope.logs = []
