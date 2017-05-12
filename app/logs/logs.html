@@ -9,11 +9,11 @@
             <div class="table-responsive col-md-8 col-md-offset-2">
                 <h2 style="margin-bottom: 20px;">
                     Logs
-                    <button type="button" class="btn btn-primary" ng-disabled="!context.type" ng-click="changeType(false)">Both</button>
-                    <button type="button" class="btn btn-danger" ng-disabled="context.type === 'error'" ng-click="changeType('error')">Error</button>
+                    <button type="button" class="btn btn-primary" ng-disabled="!context.type" ng-click="changeType(false)">Alle</button>
+                    <button type="button" class="btn btn-danger" ng-disabled="context.type === 'error'" ng-click="changeType('error')">Feil</button>
                     <button type="button" class="btn btn-info" ng-disabled="context.type === 'info'" ng-click="changeType('info')">Info</button>
                 </h2>
-                <p ng-if="logs.length === 0">Ingenting å vise for {{ (context.type) ? context.type : 'both' }}.</p>
+                <p ng-if="logs.length === 0">Ingenting å vise for {{ (context.type) ? context.type : 'alle' }}.</p>
                 <table ng-if="logs.length > 0" class="table table-bordered table-striped">
                     <thead>
                         <tr>

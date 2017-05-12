@@ -12,7 +12,7 @@
             LogService
         ])
 
-    function LogService(apiUrl, $http, store, AuthService) {
+    function LogService (apiUrl, $http, store, AuthService) {
         this.getAll = getAll
 
         function getAll (page, type) {

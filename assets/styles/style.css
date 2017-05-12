@@ -442,6 +442,40 @@ p {
     margin-top: 15px;
 }
 
+.chat-container {
+    background: #fff;
+    padding: 20px;
+    border: 2px solid #eee;
+}
+.chat-container:hover {
+    background: #fafafa;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.chatmessage-container {
+    display: block;
+}
+.chatmessage {
+    background-color: #fff;
+    max-width: 300px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.chat-input {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+}
+.chat-input .form-control {
+    background: #fff;
+    padding: 0 10px;
+}
+
 .line {
     border-bottom: 3px solid #0075a1;
     margin: 15px 0;

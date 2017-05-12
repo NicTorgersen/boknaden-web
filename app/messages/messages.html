@@ -1,0 +1,61 @@
+<div class="spinner" ng-if="showSpinner">
+    <span us-spinner="" spinner-on="showSpinner"></span>
+    <div class="spinner-backdrop"></div>
+</div>
+<div bn-profile></div>
+<div class="flyerstore">
+    <div class="flyers">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <span class="pull-left" ng-if="context.type === 'messages'" ng-click="closeChat()">
+                    <i class="fa fa-chevron-left"></i>
+                </span>
+                <h2 class="pull-left" style="margin-bottom: 20px;">
+                    Meldinger
+                </h2>
+                <span class="pull-right" ng-click="reload()">
+                    <i class="fa fa-refresh"></i>
+                </span>
+
+                <div class="clearfix"></div>
+                <p ng-if="messages.length === 0">Du har ingen meldinger.</p>
+                <div ng-if="messages.length > 0">
+                    <div ng-if="context.type === 'chats'">
+                        <div class="chat-container" ng-repeat="chat in messages" ng-click="openChat(chat)">
+                            <p>Chat med {{ (profile.username === chat.Recipient.username) ? chat.Initiator.username : chat.Recipient.username }}</p>
+                        </div>
+                    </div>
+
+                    <div ng-if="context.type === 'messages'" class="chatmessages">
+                        <div class="chatmessage-container" ng-repeat="message in messages">
+                            <div class="chatmessage-user">
+                                <span
+                                    ng-class="{ 'pull-right': message.user.username === profile.username }">
+                                    {{ message.user.username }}
+                                </span>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="chatmessage" ng-class="{ 'pull-right': message.user.username === profile.username, 'pull-left': message.user.username !== profile.username }">
+                                <p>{{ message.message }}</p>
+                                <p am-time-ago="message.createddate" class="text-muted"></p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="chat-input">
+                            <form>
+                                <div class="input-group">
+                                    <input ng-model="context.newMessage" autofocus type="text" class="form-control">
+                                    <span class="input-group-btn">
+                                        <input ng-click="sendMessage()" type="submit" class="btn btn-default" value="Send">
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>

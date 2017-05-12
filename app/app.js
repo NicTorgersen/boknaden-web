@@ -73,13 +73,17 @@
                 templateUrl: 'app/item/item.html',
                 controller: 'ItemCtrl',
             })
-            .when('/item/interest/:itemId', {
+            .when('/item/:itemId/interest', {
                 templateUrl: 'app/interest/interest.html',
                 controller: 'InterestCtrl',
             })
             .when('/logs', {
                 templateUrl: 'app/logs/logs.html',
                 controller: 'LogsCtrl',
+            })
+            .when('/messages', {
+                templateUrl: 'app/messages/messages.html',
+                controller: 'MessagesCtrl',
             })
             .otherwise({
                 redirectTo: '/store',
