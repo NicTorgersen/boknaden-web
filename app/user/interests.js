@@ -3,16 +3,16 @@
 
     angular
         .module('boknaden')
-        .controller('InterestsCtrl', [
+        .controller('UserInterestsCtrl', [
             '$scope',
             '$location',
             'growl',
             'InterestService',
             'AuthService',
-            InterestsCtrl
+            UserInterestsCtrl
         ])
 
-    function InterestsCtrl ($scope, $location, growl, InterestService, AuthService) {
+    function UserInterestsCtrl ($scope, $location, growl, InterestService, AuthService) {
         $scope.interests = {}
         $scope.isAuthenticated = AuthService.isAuthenticated()
         $scope.showSpinner = true

@@ -7,12 +7,13 @@
             '$scope',
             '$location',
             'growl',
+            'ChatsService',
             'MessagesService',
             'AuthService',
             MessagesCtrl
         ])
 
-    function MessagesCtrl ($scope, $location, growl, MessagesService, AuthService) {
+    function MessagesCtrl ($scope, $location, growl, ChatsService, MessagesService, AuthService) {
         if (!AuthService.isAuthenticated()) {
             $location.path('/store')
             return
@@ -39,23 +40,25 @@
         function reload () {
             $scope.showSpinner = true
 
-            if ($scope.context.type === 'chats') {
-                MessagesService.getAllChats($scope.context.page).then(function (res) {
-                    $scope.messages = res.data.chats.rows
-                    $scope.context.totalItems = res.data.chats.rows.length
-                    $scope.showSpinner = false
-                }, function (err) {
-                    growl.error(err, {title: 'Error'})
-                })
-            } else if ($scope.context.type === 'messages') {
-                MessagesService.getAllMessages($scope.context.page, $scope.context.chatid).then(function (res) {
-                    $scope.messages = res.data.chatMessages.rows
-                    $scope.context.totalItems = res.data.chatMessages.rows.length
-                    $scope.showSpinner = false
-                }, function (err) {
-                    growl.error(err, {title: 'Error'})
-                })
-
+            switch ($scope.context.type) {
+                case 'chats':
+                    ChatsService.getAllChats($scope.context.page).then(function (res) {
+                        $scope.messages = res.data.chats.rows
+                        $scope.context.totalItems = res.data.chats.rows.length
+                        $scope.showSpinner = false
+                    }, function (err) {
+                        growl.error(err, {title: 'Error'})
+                    })
+                    break;
+                case 'messages':
+                    MessagesService.getAllMessages($scope.context.page, $scope.context.chatid).then(function (res) {
+                        $scope.messages = res.data.chatMessages.rows
+                        $scope.context.totalItems = res.data.chatMessages.rows.length
+                        $scope.showSpinner = false
+                    }, function (err) {
+                        growl.error(err, {title: 'Error'})
+                    })
+                    break;
             }
         }
 

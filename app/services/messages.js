@@ -12,33 +12,13 @@
         ])
 
     function MessagesService (apiUrl, $http, AuthService) {
-        this.getAllChats = getAllChats
         this.getAllMessages = getAllMessages
         this.newMessage = newMessage
 
-        function getAllChats (page) {
-            var type = 'chats',
-                params = {
-                    page: page,
-                    type: type
-                }
-
-            return $http({
-                url: apiUrl + '/messages',
-                method: 'GET',
-                params: params,
-                headers: {
-                    'boknaden-verify': AuthService.token()
-                }
-            })
-        }
-
         function getAllMessages (page, chatid) {
-            var type = 'messages',
-                params = {
+            var params = {
                     page: page,
                     chatid: chatid,
-                    type: type,
                 }
 
             return $http({

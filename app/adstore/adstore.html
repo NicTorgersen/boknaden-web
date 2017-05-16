@@ -24,7 +24,7 @@
                     <div class="flyer-content" ng-click="go('/item/' + flyer.adid)">
                         <p class="flyer-aside">
                             <em><span am-time-ago="flyer.createddate"></span></em>
-                            <span class="pull-right"><a ng-href="{{ '/user/' + flyer.user.username }}">{{ flyer.user.username }}</a></span>
+                            <span class="pull-right"><a ng-href="{{ '/profile/' + flyer.user.username }}">{{ flyer.user.username }}</a></span>
                         </p>
                         <div ng-show="flyer.selectedAdItem.active">
                             <h3 title="{{flyer.selectedAdItem.adItem.text}}">{{ flyer.selectedAdItem.adItem.text | limitTo:15 }}{{ (flyer.selectedAdItem.adItem.text.length > 15) ? '...' : '' }}</h3>

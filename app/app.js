@@ -49,17 +49,17 @@
                 templateUrl: 'app/adstore/adstore.html',
                 controller: 'AdStoreCtrl',
             })
-            .when('/user/profile', {
+            .when('/profile', {
                 templateUrl: 'app/user/profile/profile.html',
                 controller: 'ProfileCtrl',
             })
-            .when('/user/:username', {
+            .when('/profile/:username', {
                 templateUrl: 'app/user/user.html',
                 controller: 'UserCtrl',
             })
             .when('/user/interests', {
                 templateUrl: 'app/user/interests.html',
-                controller: 'InterestsCtrl'
+                controller: 'UserInterestsCtrl',
             })
             .when('/item/new', {
                 templateUrl: 'app/item/new.html',

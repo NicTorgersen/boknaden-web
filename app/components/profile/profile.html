@@ -13,11 +13,13 @@
                 <div class="line"></div>
             </div>
             <div ng-if="profile.verified === 1">
-                <button type="button" class="btn btn-primary btn-block" ng-click="go('/user/profile')">{{ profile.username }}</button>
+                <button type="button" class="btn btn-primary btn-block" ng-click="go('/profile')">{{ profile.username }}</button>
                 <button type="button" class="btn btn-primary btn-block" ng-click="go('/messages')">meldinger</button>
                 <div class="line"></div>
                 <button type="button" class="btn btn-primary btn-block" ng-click="go('/item/new')">ny annonse</button>
                 <button type="button" class="btn btn-primary btn-block" ng-click="go('/item/mine')">dine annonser</button>
+                <div class="line"></div>
+                <button type="button" class="btn btn-primary btn-block" ng-click="go('/user/interests')">interesser</button>
                 <div class="line"></div>
             </div>
             <div ng-if="profile.isadmin">
