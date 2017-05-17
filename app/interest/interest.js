@@ -6,6 +6,7 @@
         .controller('InterestCtrl', [
             '$scope',
             '$location',
+            '$routeParams',
             'growl',
             'AdService',
             'AuthService',
@@ -18,8 +19,9 @@
         }
 
         $scope.flyer = {}
-        $scope.isAuthenticated = AuthService.isAuthenticated()
         $scope.showSpinner = true
+        $scope.selectedAdItems = []
+        $scope.itemId = $routeParams.itemId
 
         reload()
 
@@ -28,7 +30,8 @@
         }
 
         function reload () {
-            AdService.get($routeParams.itemId).then(function (res) {
+            AdService.get($scope.itemId).then(function (res) {
+                console.log(res.data.aditems)
                 $scope.showSpinner = false
                 $scope.flyer = res.data
             }, function (err) {

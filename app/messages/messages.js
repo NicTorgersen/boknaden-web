@@ -43,8 +43,8 @@
             switch ($scope.context.type) {
                 case 'chats':
                     ChatsService.getAllChats($scope.context.page).then(function (res) {
-                        $scope.messages = res.data.chats.rows
-                        $scope.context.totalItems = res.data.chats.rows.length
+                        $scope.messages = res.data.chats
+                        $scope.context.totalItems = res.data.chats.length
                         $scope.showSpinner = false
                     }, function (err) {
                         growl.error(err, {title: 'Error'})
@@ -52,8 +52,8 @@
                     break;
                 case 'messages':
                     MessagesService.getAllMessages($scope.context.page, $scope.context.chatid).then(function (res) {
-                        $scope.messages = res.data.chatMessages.rows
-                        $scope.context.totalItems = res.data.chatMessages.rows.length
+                        $scope.messages = res.data.chatMessages
+                        $scope.context.totalItems = res.data.chatMessages.length
                         $scope.showSpinner = false
                     }, function (err) {
                         growl.error(err, {title: 'Error'})

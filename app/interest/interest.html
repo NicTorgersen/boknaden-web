@@ -3,3 +3,18 @@
     <div class="spinner-backdrop"></div>
 </div>
 <div bn-profile></div>
+<div class="flyerstore">
+    <div class="row single-flyer">
+        <div class="col-md-12">
+            <div class="header">
+                <h2>
+                    <a ng-href="{{ '/item/' + itemId }}">{{ flyer.adname }}</a>
+                </h2>
+            </div>
+            <div class="flyer-content">
+                <p>Annonse med {{ flyer.aditems.length }} objekter, opprettet av <a ng-href="{{ '/profile/' + flyer.user.username }}">{{ flyer.user.username }}</a> for <span am-time-ago="flyer.createddate"></span>.</p>
+            </div>
+            <div bn-item-selector selected-items="selectedAdItems" all-items="flyer.aditems"></div>
+        </div>
+    </div>
+</div>
