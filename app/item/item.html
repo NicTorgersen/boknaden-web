@@ -41,6 +41,10 @@
                     <span ng-if="isAuthenticated">{{ flyer.user.email }}</span>
                     <span ng-if="!isAuthenticated"><a ng-href="{{ '/login?return=/item/' + flyer.adid }}">Logg inn for å se e-post</a></span>
                 </p>
+                <p>Telefonnummer:
+                    <span ng-if="isAuthenticated">{{ flyer.user.phone }}</span>
+                    <span ng-if="!isAuthenticated"><a ng-href="{{ '/login?return=/item/' + flyer.adid }}">Logg inn for å se telefonnummer</a></span>
+                </p>
             </div>
             <div class="flyer-interest" ng-if="!flyer.isowner">
                 <p ng-if="!isAuthenticated"><a ng-href="{{ '/login?return=/item/' + flyer.adid }}" class="btn btn-lg btn-success">Logg inn</a> for å melde interesse</p>
