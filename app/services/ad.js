@@ -16,11 +16,14 @@
         this.get = get
         this.getAll = getAll
         this.getAdsForUser = getAdsForUser
+        this.getAdForInterest = getAdForInterest
         this.deleteAd = deleteAd
         this.create = create
 
-        function get (id) {
-            var id = parseInt(id),
+        function get (id, type) {
+            var params  = {},
+                id      = parseInt(id),
+                type    = type || 'list',
                 headers = {}
 
             if (typeof(id) === 'number') {
@@ -29,10 +32,13 @@
                     headers['boknaden-verify'] = AuthService.token()
                 }
 
+                params.adid = id
+                params.type = type
+
                 return $http({
                     url: apiUrl + '/ads',
                     method: 'GET',
-                    params: { adid: parseInt(id) },
+                    params: params,
                     headers: headers
                 }).then(function (res) {
                     return res
@@ -41,9 +47,11 @@
 
         }
 
-        function getAll (params) {
+        function getAll (params, type) {
+            var params = params || {},
+                type   = type || 'list'
 
-            var params = params || {}
+            params.type = type
 
             return $http({
                 url: apiUrl + '/ads',
@@ -64,6 +72,19 @@
                 method: 'GET',
                 params: {
                     userid: AuthService.profile().userid
+                }
+            })
+        }
+
+        function getAdForInterest (adid) {
+            return $http({
+                url: apiUrl + '/adforinterest',
+                method: 'GET',
+                params: {
+                    adid: adid
+                },
+                headers: {
+                    'boknaden-verify': AuthService.token()
                 }
             })
         }

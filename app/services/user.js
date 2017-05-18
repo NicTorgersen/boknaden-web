@@ -21,6 +21,7 @@
             verifyCode: verifyCode,
             verifyUserCode: verifyUserCode,
             verifyUser: verifyUser,
+            resendVerification: resendVerification,
             create: create,
         }
 
@@ -85,6 +86,20 @@
                 url: apiUrl + '/verifyuser',
                 method: 'POST',
                 data: { verificationcode: code }
+            })
+        }
+
+        function resendVerification () {
+            var headers = {}
+
+            if (AuthService.isAuthenticated()) {
+                headers['boknaden-verify'] = AuthService.token()
+            }
+
+            return $http({
+                url: apiUrl + '/verifyuser',
+                method: 'PUT',
+                headers: headers
             })
         }
 

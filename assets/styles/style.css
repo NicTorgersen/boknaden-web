@@ -364,7 +364,7 @@ p {
     margin-bottom: 15px;
 }
 .flyers .flyer-container .swiper-container {
-    background: rgba(224, 224, 224, 0.2);
+    background: rgb(250, 250, 250);
 }
 .flyers .flyer-container header {
     min-height: 259px;
@@ -446,11 +446,11 @@ p {
     background: #fff;
     padding: 20px;
     border: 2px solid #eee;
+    margin-bottom: 10px;
 }
 .chat-container:hover {
     background: #fafafa;
     cursor: pointer;
-    margin-bottom: 10px;
 }
 
 .chatmessage-container {
@@ -574,7 +574,13 @@ p {
 }
 
 .bn-item-selector {
-    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 20px;
+}
+
+.bn-item-selector-select-all {
+    margin-bottom: 20px;
 }
 
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev {

@@ -28,7 +28,23 @@
             growl.error(err.toString(), {title: 'Error'})
         })
 
-        $scope.go = function (path) {
+        $scope.go = go
+
+        $scope.checkUserBeforeInterest = function () {
+            if (!AuthService.isAuthenticated()) {
+                growl.info('Du må være innlogget for å bruke denne funksjonen.')
+                return
+            }
+
+            if (!AuthService.isVerified()) {
+                growl.info('Du må være verifisert for å bruke denne funksjonen. Sjekk e-posten din!')
+                return
+            }
+
+            go('/item/' + $scope.flyer.adid + '/interest')
+        }
+
+        function go (path) {
             var location = $location.url()
             $location.path(path).search({return: location})
         }

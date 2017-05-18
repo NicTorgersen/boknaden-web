@@ -5,11 +5,13 @@
         .module('boknaden')
         .directive('bnProfile', [
             '$location',
+            'growl',
             'AuthService',
+            'UserService',
             bnProfile
         ])
 
-    function bnProfile ($location, AuthService) {
+    function bnProfile ($location, growl, AuthService, UserService) {
         return {
             restrict: 'A',
             templateUrl: 'app/components/profile/profile.html',
@@ -32,6 +34,14 @@
                 scope.logout = function () {
                     AuthService.logout()
                     scope.go('/login')
+                }
+                scope.resendVerification = function () {
+                    if (!AuthService.isVerified()) {
+                        growl.info('Vi har nå sent verifiseringsmailen på nytt.', {title: 'Sjekk e-posten din'})
+                        UserService.resendVerification()
+                    } else {
+                        growl.info('Du er allerede verifisert. Trenger ikke flere e-poster om det, du da ;)')
+                    }
                 }
             }
         }

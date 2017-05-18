@@ -17,6 +17,7 @@
     function AuthService(apiUrl, $http, $location, store, growl, jwtHelper) {
         this.verify = verify
         this.isAuthenticated = isAuthenticated
+        this.isVerified = isVerified
         this.profile = profile
         this.token = token
         this.logout = logout
@@ -44,7 +45,7 @@
             if (typeof token === 'string') {
                 if (jwtHelper.isTokenExpired(token)) {
                     store.remove('token')
-                    growl.info('Vennligst logg inn på nytt.', { title: 'Du er blitt logget ut' })
+                    growl.info('Din økt har utløpt. Vennligst logg inn på nytt.', { title: 'Du er blitt logget ut' })
                     return false
                 }
                 return true
@@ -53,12 +54,22 @@
             return false
         }
 
+        function isVerified () {
+            if (this.profile()) {
+                return !!this.profile().verified
+            } else {
+                return false
+            }
+        }
+
         function profile () {
             var token   = store.get('token')
 
             if (token) {
                 var profile = jwtHelper.decodeToken(token)
                 return profile
+            } else {
+                return false
             }
         }
 

@@ -29,8 +29,9 @@
             })
         }
 
-        function newInterest (data) {
-            var data = data || [],
+        function newInterest (data, message) {
+            var data    = data || [],
+                message = message || 'Jeg ønsker disse objektene.',
                 headers = {}
 
             if (AuthService.isAuthenticated()) {
@@ -40,8 +41,8 @@
             return $http({
                 url: apiUrl + '/interest',
                 method: 'POST',
+                data: { aditems: data, message: message },
                 headers: headers,
-                data: data
             })
         }
     }

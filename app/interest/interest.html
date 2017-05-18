@@ -5,16 +5,28 @@
 <div bn-profile></div>
 <div class="flyerstore">
     <div class="row single-flyer">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="header">
-                <h2>
-                    <a ng-href="{{ '/item/' + itemId }}">{{ flyer.adname }}</a>
-                </h2>
+                <h2>Velg objekter du ønsker, for annonsen "<a ng-href="{{ '/item/' + itemId }}">{{ flyer.adname }}</a>".</h2>
             </div>
             <div class="flyer-content">
-                <p>Annonse med {{ flyer.aditems.length }} objekter, opprettet av <a ng-href="{{ '/profile/' + flyer.user.username }}">{{ flyer.user.username }}</a> for <span am-time-ago="flyer.createddate"></span>.</p>
+                <p>Opprettet av <a ng-href="{{ '/profile/' + flyer.user.username }}">{{ flyer.user.username }}</a> for <span am-time-ago="flyer.createddate"></span>.</p>
             </div>
             <div bn-item-selector selected-items="selectedAdItems" all-items="flyer.aditems"></div>
+
+            <button ng-click="submitInterests()" ng-disabled="selectedAdItems.length < 1" type="button" class="btn btn-block btn-lg btn-success">
+                Jeg ønsker {{ selectedAdItems.length + ' ' + ((selectedAdItems.length === 1) ? 'objekt' : 'objekter') }} til totalt {{ calculateTotalPrice() }} kr
+            </button>
+        </div>
+        <div class="col-md-3 flyer-salesman">
+            <div class="salesman-head">
+                <h4>Selger</h4>
+            </div>
+            <div class="salesman-body">
+                <p>Navn: {{ flyer.user.firstname }} {{ flyer.user.lastname }}</p>
+                <p>Campus: {{ flyer.course.campus.campusname }}</p>
+                <p>E-post: {{ flyer.user.email }}</p>
+            </div>
         </div>
     </div>
 </div>

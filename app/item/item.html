@@ -44,7 +44,7 @@
             </div>
             <div class="flyer-interest" ng-if="!flyer.isowner">
                 <p ng-if="!isAuthenticated"><a ng-href="{{ '/login?return=/item/' + flyer.adid }}" class="btn btn-lg btn-success">Logg inn</a> for å melde interesse</p>
-                <p ng-if="isAuthenticated"><button ng-click="go('/item/' + flyer.adid + '/interest')" type="button" class="btn btn-lg btn-primary">Meld interesse</button></p>
+                <p ng-if="isAuthenticated"><button ng-click="checkUserBeforeInterest()" type="button" class="btn btn-lg btn-primary">Meld interesse</button></p>
             </div>
             <div class="flyer-interest" ng-if="flyer.isowner">
                 <p ng-if="isAuthenticated"><a ng-href="{{ '/item/mine?active=' + flyer.adid}}">Dette er din annonse.</a></p>

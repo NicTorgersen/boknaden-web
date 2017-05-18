@@ -1,6 +1,20 @@
 <div class="bn-item-selector row">
-    <div class="col-md-4" ng-class="{'bg-success': item.selected}" ng-click="addRemoveSelectedItem(item)" ng-repeat="item in allItems">
+    <div ng-if="allItems.length > 0" class="col-md-12 bn-item-selector-select-all">
+        <button type="button" class="btn btn-primary" ng-click="toggleSelectAll()">
+            <span ng-hide="selectedItems.length === allItems.length">
+                <i class="fa fa-check"></i> Merk alle
+            </span>
+            <span ng-show="selectedItems.length === allItems.length">
+                <i class="fa fa-ban"></i> Opphev valg
+            </span>
+        </button>
+    </div>
+    <div ng-if="allItems.length > 0" class="col-md-4" ng-class="{'bg-success': item.selected}" ng-click="addRemoveSelectedItem(item)" ng-repeat="item in allItems">
+        <p class="text-center text-boknaden">{{ item.price }} kr</p>
         <h3 class="text-center">{{ item.text }}</h3>
         <p class="text-center">{{ item.description }}</p>
+    </div>
+    <div ng-if="!allItems || allItems.length === 0">
+        <p>Du kan ikke melde interesse for objekter fra denne annonsen fordi du allerede har gjort det.</p>
     </div>
 </div>

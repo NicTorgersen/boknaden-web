@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Godkjenn valg</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <p>Du har valgt objekter til samlet pris: <strong>{{ calculateTotalPrice() }} kr</strong>.</p>
+    <ul>
+        <li ng-repeat="item in items">
+            <strong>{{ item.text }}</strong>
+        </li>
+    </ul>
+    <hr>
+    <p>Selgeren ønsker kontakt med deg. Definér en melding under, eller trykk <strong><span class="text-success">Dette ser bra ut</span></strong> for å bruke standardmeldingen.</p>
+    <textarea class="form-control" ng-model="message" rows="3"></textarea>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="confirmSelection()">Dette ser bra ut</button>
+    <button class="btn btn-danger" type="button" ng-click="dismiss()">Avbryt</button>
+</div>

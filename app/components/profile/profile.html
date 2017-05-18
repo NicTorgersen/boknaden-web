@@ -10,6 +10,8 @@
         <div ng-if="authed" class="profile-authenticated">
             <div ng-if="profile.verified === 0">
                 <p>Vennligst verifiser e-posten din.</p>
+                <p>Ikke mottatt e-post?</p>
+                <button type="button" class="btn btn-primary btn-block" ng-click="resendVerification()">Send på nytt</button>
                 <div class="line"></div>
             </div>
             <div ng-if="profile.verified === 1">
@@ -19,7 +21,7 @@
                 <button type="button" class="btn btn-primary btn-block" ng-click="go('/item/new')">ny annonse</button>
                 <button type="button" class="btn btn-primary btn-block" ng-click="go('/item/mine')">dine annonser</button>
                 <div class="line"></div>
-                <button type="button" class="btn btn-primary btn-block" ng-click="go('/user/interests')">interesser</button>
+                <button type="button" class="btn btn-primary btn-block" ng-click="go('/user/interests')">dine interesser</button>
                 <div class="line"></div>
             </div>
             <div ng-if="profile.isadmin">
