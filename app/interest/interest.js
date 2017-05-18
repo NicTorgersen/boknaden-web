@@ -35,11 +35,11 @@
         $scope.calculateTotalPrice = calculateTotalPrice
 
         function reload () {
-            AdService.getAdForInterest($scope.itemId).then(function (res) {
+            AdService.get($scope.itemId).then(function (res) {
                 $scope.showSpinner = false
                 $scope.flyer = res.data.ad
                 if (!res.data.ad) {
-                    
+
                 }
 
             }, function (err) {
@@ -80,7 +80,7 @@
                             if (res.data.success) {
                                 growl.success('Du har vist interesse for ' + $scope.selectedAdItems.length + (($scope.selectedAdItems.length === 1) ? ' objekt' : ' objekter') + '. Vi har opprettet en chat for deg med selgeren.', {title: 'Interesse'})
                                 $scope.selectedAdItems = []
-                                $location.path('/user/interests')
+                                $location.path('/messages')
                             } else {
                                 growl.error('Det skjedde en kritisk feil under operasjonen. Vennligst ta kontakt med administrator.', {title: 'Kritisk feil'})
                             }
