@@ -13,24 +13,7 @@
         }
     }
 
-    function FooterCtrl ($scope, $location, store) {
-        $scope.objects = [
-            {
-                title: 'Om',
-                article: '',
-                isActive: false,
-            },
-            {
-                title: 'Vilkår',
-                article: '',
-                isActive: false,
-            }
-        ]
-
-        function toggle (idx) {
-            $scope.objects[parseInt(idx)].isActive = !$scope.objects[parseInt(idx)].isActive
-        }
-
+    function FooterCtrl ($scope, $location, $uibModal, store) {
         function logout () {
             store.remove('token')
             $location.path('/')
@@ -41,9 +24,22 @@
             return token
         }
 
+        $scope.showAbout = function () {
+            $uibModal.open({
+                animation: false,
+                templateUrl: 'app/components/footer/aboutModal/aboutModal.html'
+            })
+        }
+
+        $scope.showTerms = function () {
+            $uibModal.open({
+                animation: false,
+                templateUrl: 'app/components/footer/termsModal/termsModal.html'
+            })
+        }
+
         $scope.isAuthenticated = isAuthenticated
         $scope.logout = logout
-        $scope.toggle = toggle
     }
 
 })();
