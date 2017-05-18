@@ -37,10 +37,7 @@
         function reload () {
             AdService.get($scope.itemId).then(function (res) {
                 $scope.showSpinner = false
-                $scope.flyer = res.data.ad
-                if (!res.data.ad) {
-
-                }
+                $scope.flyer = res.data
 
             }, function (err) {
                 growl.error(err, {title: 'Error'})
