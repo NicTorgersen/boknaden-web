@@ -3,15 +3,26 @@
     <div class="spinner-backdrop"></div>
 </div>
 <div bn-profile></div>
+<div bn-front-filter></div>
 <div class="flyerstore">
     <div class="flyers">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="latest-flyers">Siste annonser</h2>
-                <!-- <button type="button" class="btn btn-primary btn-sm btn-new-ad"><i class="fa fa-fw fa-plus"></i> ny</button> -->
+                <div ng-show="context.inSearchContext">
+                    <h2 class="latest-flyers">Filtrerte annonser <i ng-click="cancelFilter()" title="Tilbakestill filtrering" class="cancel-filter text-boknaden fa fa-fw fa-times"></i></h2>
+                </div>
+                <div ng-show="!context.inSearchContext">
+                    <h2 class="latest-flyers">Siste annonser</h2>
+                </div>
             </div>
         </div>
         <div class="row">
+            <div class="no-flyers" ng-if="flyers.length === 0">
+                <p>Det finnes ingen annonser her enda.
+                    <a ng-if="isAuthenticated()" href="/item/new">Opprett en nå!</a>
+                    <a ng-if="!isAuthenticated()" href="/login">Logg inn for å legge ut din egen annonse!</a>
+                </p>
+            </div>
             <div ng-repeat="flyer in flyers" class="col-lg-3 col-md-4 col-sm-5 flyer-container">
                 <div class="col-xs-12">
                     <header class="text-center">

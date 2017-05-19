@@ -20,7 +20,7 @@
     function config($routeProvider, $locationProvider, $httpProvider, $compileProvider, $growlProvider, usSpinnerConfigProvider) {
 
         $growlProvider
-            .globalTimeToLive(2500)
+            .globalTimeToLive(4000)
             .globalDisableIcons(true)
             .globalDisableCountDown(true)
             .globalPosition('bottom-right')

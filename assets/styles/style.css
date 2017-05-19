@@ -113,6 +113,57 @@ p {
     border-bottom: 15px solid #036185;
 }*/
 
+.bn-front-filter {
+    z-index: 11;
+    position: fixed;
+}
+.bn-front-filter .filter-icon {
+    top: 0;
+    left: 0;
+    padding: 50px 20px 12px 20px;
+    z-index: 11;
+}
+.bn-front-filter-container {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 51px;
+    background-color: #036185;
+    z-index: 9;
+    font-size: 16px;
+
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+.bn-front-filter-container.active {
+    top: 100px;
+}
+.bn-front-filter-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.bn-front-filter-container li {
+    display: inline-block;
+    padding: 10px;
+    color: #fafafa;
+}
+.bn-front-filter-container li:hover {
+    cursor: pointer;
+}
+.bn-front-filter-container .bn-filter-dropdown {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -10px;
+    padding: 0;
+    min-width: 100px;
+    background: #036185;
+}
+.bn-front-filter-container .bn-filter-dropdown li {
+    display: block;
+}
+
 .main-navigation {
     border-top: 1px solid #820d43;
     top: 100px;
@@ -181,7 +232,7 @@ p {
 }
 
 .site-footer {
-    z-index: 8;
+    z-index: 7;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -323,6 +374,12 @@ p {
     margin-left: 30px;
     margin-bottom: 25px;
 }
+.flyerstore .cancel-filter {
+    font-size: 18px;
+}
+.flyerstore .cancel-filter:hover {
+    cursor: pointer;
+}
 
 .flyerstore .header {
     margin-left: 30px;
@@ -356,9 +413,11 @@ p {
     margin-left: 20px;
     margin-top: -15px;
 }
-
+.flyers .no-flyers {
+    margin-left: 30px;
+}
 .flyers .flyer-container {
-    z-index: 9;
+    z-index: 8;
     padding-left: 0;
     padding-right: 0;
     margin-bottom: 15px;

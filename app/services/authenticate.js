@@ -30,7 +30,7 @@
                     data: {username: username, passphrase: passphrase}
                 }).then(function (response) {
                     if (response.data.success === true && !store.get('token')) {
-                        growl.success('Successful authentication!', {title: 'Authenticated'})
+                        growl.success('Du er nå innlogget.')
                         store.set('token', response.data.token)
                     }
 

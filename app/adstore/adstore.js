@@ -17,11 +17,20 @@
         $scope.flyers = []
         $scope.isAuthenticated = AuthService.isAuthenticated()
         $scope.showSpinner = true
+        $scope.context = {
+            inSearchContext: false,
+        }
 
         reload()
 
         $scope.go = function (path) {
             $location.path(path)
+        }
+
+        $scope.cancelFilter = function () {
+            for (var prop in $location.search()) {
+                $location.search(prop, null)
+            }
         }
 
         $scope.activateAdItem = function (flyer, aditem) {
@@ -55,14 +64,17 @@
 
             if ($location.search().hasOwnProperty('course')) {
                 filterParams.courseid = $location.search().course
+                $scope.context.inSearchContext = true
             }
 
             if ($location.search().hasOwnProperty('campus')) {
                 filterParams.campusid = $location.search().campus
+                $scope.context.inSearchContext = true
             }
 
             if ($location.search().hasOwnProperty('university')) {
                 filterParams.universityid = $location.search().university
+                $scope.context.inSearchContext = true
             }
 
             AdService.getAll(filterParams).then(function (res) {
