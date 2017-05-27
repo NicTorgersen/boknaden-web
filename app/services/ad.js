@@ -101,7 +101,7 @@
             return $http({
                 url: apiUrl + '/ads',
                 method: 'DELETE',
-                data: {
+                params: {
                     adid: adid
                 },
                 headers: {

@@ -28,7 +28,7 @@
                     <header class="text-center">
                         <ks-swiper-container initial-slide="0" show-nav-buttons="true" slides-per-view="1" space-between="0" override-parameters="{'centeredSlides': ((flyer.aditems.length>1) ? false : true)}">
                             <ks-swiper-slide class="swiper-slide" ng-repeat="s in flyer.aditems">
-                                <img ng-click="activateAdItem(flyer, s)" height="259px" src="http://loremflickr.com/215/250?random={{s.aditemid}}" alt="">
+                                <img ng-click="activateAdItem(flyer, s)" height="259px" ng-src="{{s.image ? s.image.imageurl : (s.isbn) ? '/assets/images/placeholder-book.png' : '/assets/images/placeholder-object.png'}}" alt="">
                             </ks-swiper-slide>
                         </ks-swiper-container>
                     </header>

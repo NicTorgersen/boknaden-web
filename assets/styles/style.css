@@ -483,6 +483,14 @@ p {
     margin-top: 20px;
 }
 
+.flyer-items .image-preview i:hover {
+    cursor: pointer;
+}
+.flyer-items .image-preview img {
+    max-width: 240px;
+    height: auto;
+}
+
 .profile-page .profile-image {
     height: 100px;
     width: 100px;

@@ -14,24 +14,29 @@
             'CampusService',
             'UniversityService',
             'AuthService',
+            'ImageService',
             NewItemCtrl
         ])
 
-    function NewItemCtrl ($scope, store, $location, $timeout, growl, AdService, CourseService, CampusService, UniversityService, AuthService) {
+    function NewItemCtrl ($scope, store, $location, $timeout, growl, AdService, CourseService, CampusService, UniversityService, AuthService, ImageService) {
         if (!AuthService.isAuthenticated() || AuthService.profile().verified === 0)
             $location.path('/store')
 
-        $scope.flyer = { adname: '', text: '', course: {}, aditems: [{image: '', isbn: '', price: 0, text: '', description: '', isBook: true}] }
+        $scope.flyer = { adname: '', text: '', course: {}, aditems: [{image: { imageid: 0, imageurl: '' }, isbn: '', price: 0, text: '', description: '', isBook: true}] }
         $scope.showISBNHelpText = false
         $scope.courses = []
         $scope.activeFlyerItem = 0
+        $scope.showSpinner = true
 
         CourseService.getAll().then(function (courses) {
             for (var i = 0; i < courses.data.length; i++) {
                 var course = courses.data[i]
                 $scope.courses.push({courseid: course.courseid, coursename: course.coursename})
+                $scope.showSpinner = false
             }
         })
+
+        $scope.test = function (item) { console.log(item) }
 
         $scope.isValid = function () {
             if ($scope.flyer.adname.length > 4 &&
@@ -89,17 +94,29 @@
 
         $scope.addAdItemToFlyer = function () {
             if ($scope.flyer.aditems.length > 0) {
-                if ( !canCreateAdItem($scope.flyer.aditems, {image: '', isbn: '', price: 0, text: '', description: '', isBook: true}) ) {
+                if ( !canCreateAdItem($scope.flyer.aditems, {image: { imageid: 0, imageurl: '' }, isbn: '', price: 0, text: '', description: '', isBook: true}) ) {
                     return
                 }
             }
 
-            $scope.flyer.aditems.push({image: '', isbn: '', price: 0, text: '', description: '', isBook: true})
+            $scope.flyer.aditems.push({image: { imageid: 0, imageurl: '' }, isbn: '', price: 0, text: '', description: '', isBook: true})
             $timeout(function () {
                 $scope.activeFlyerItem = ($scope.flyer.aditems.length - 1)
             }, 10);
         }
 
+        $scope.removeUploadedImage = function (aditem) {
+            $scope.showSpinner = true
+            if (aditem.image.imageid > 0) {
+                ImageService.delete(aditem.image.imageid).then(function (response) {
+                    aditem.image = { imageid: 0, imageurl: '' }
+                    $scope.showSpinner = false
+                    console.log(response)
+                })
+            } else {
+                console.log('Imageid not updated.')
+            }
+        }
 
     }
 

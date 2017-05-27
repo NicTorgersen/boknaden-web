@@ -21,7 +21,7 @@
 
                 <div class="row">
                     <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-4 text-center">
-                        <img width="240px" src="http://loremflickr.com/315/300?random={{aditem.aditemid}}" alt="">
+                        <img width="240px" ng-src="{{aditem.image ? aditem.image.imageurl : (aditem.isbn) ? '/assets/images/placeholder-book.png' : '/assets/images/placeholder-object.png'}}" alt="">
                         <p class="text-center"><span class="text-boknaden">{{ aditem.price }} kr</span></p>
                         <h3 class="text-center">{{ aditem.text }}</h3>
                         <em class="text-center" ng-if="aditem.isbn">isbn {{ aditem.isbn }}</em>
