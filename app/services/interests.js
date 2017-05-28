@@ -15,16 +15,24 @@
         this.get = getInterests
         this.newInterest = newInterest
 
-        function getInterests () {
-            var headers = {}
+        function getInterests (type) {
+            var headers = {},
+                params = {}
+
+            type = type || null
 
             if (AuthService.isAuthenticated()) {
                 headers['boknaden-verify'] = AuthService.token()
             }
 
+            if (type) {
+                params['type'] = type
+            }
+
             return $http({
                 url: apiUrl + '/interest',
                 method: 'GET',
+                params: params,
                 headers: headers
             })
         }

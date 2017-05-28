@@ -13,7 +13,7 @@
         ])
 
     function UserInterestsCtrl ($scope, $location, growl, InterestService, AuthService) {
-        $scope.interests = {}
+        $scope.interests = []
         $scope.isAuthenticated = AuthService.isAuthenticated()
         $scope.showSpinner = true
 
@@ -23,7 +23,8 @@
 
         InterestService.get().then(function (res) {
             $scope.showSpinner = false
-            $scope.user = res.data
+            $scope.interests = res.data.interests
+            console.log($scope.interests)
         }, function (err) {
             console.log(err)
             growl.error(err, {title: 'Error'})

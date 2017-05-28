@@ -88,7 +88,7 @@ p {
     z-index: 11;
 }
 .profile-container {
-    position: fixed;
+    position: absolute;
     top: -350px;
     right: 0;
     width: 200px;
@@ -507,6 +507,20 @@ p {
 }
 .profile-page button {
     margin-top: 15px;
+}
+
+/* INTEREST */
+.interest-container {
+    margin-bottom: 15px;
+}
+.interest-container h3 {
+    margin: 0 0 15px 0;
+    padding: 15px 15px;
+    background: #0075a1;
+}
+.interest-container h3,
+.interest-container p {
+    color: #fff;
 }
 
 .chat-container {

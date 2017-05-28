@@ -3,8 +3,23 @@
     <div class="spinner-backdrop"></div>
 </div>
 <div bn-profile></div>
-<div class="row">
-    <div class="view col-md-8 col-md-offset-2">
+<div class="row flyerstore">
+    <div class="col-md-8 col-md-offset-2">
         <h2>Dine interesser</h2>
+        <div class="row">
+            <div ng-if="interests.length === 0" class="col-md-12">
+                <p>Du har ikke meldt noen interesser enda.</p>
+            </div>
+            <div ng-if="interests.length > 0" class="col-md-12 interest-container" ng-repeat="interest in interests">
+                <h3>{{ interest.adname }}</h3>
+                <div class="row">
+                    <div class="col-md-4 text-center" ng-repeat="aditem in interest.aditems">
+                        <img width="240px" ng-src="{{aditem.image.imageurl}}" alt="">
+                        <p class="text-center"><span class="text-boknaden">{{aditem.price}} kr</span></p>
+                        <h4 class="text-center">{{aditem.text}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
