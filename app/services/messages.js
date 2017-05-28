@@ -31,8 +31,9 @@
             })
         }
 
-        function newMessage (message, recipientid) {
+        function newMessage (message, recipientid, chatid) {
             var message = message
+            chatid = chatid || 0
 
             if (message.length < 1) {
                 return false
@@ -42,6 +43,7 @@
                 url: apiUrl + '/messages',
                 method: 'POST',
                 data: {
+                    chatid: chatid,
                     recipientid: recipientid,
                     message: message
                 },

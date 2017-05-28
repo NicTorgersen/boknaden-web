@@ -82,7 +82,12 @@
         }
 
         $scope.sendMessage = function () {
-            MessagesService.newMessage($scope.context.newMessage, $scope.context.recipientid).then(function (res) {
+            if ($scope.context.newMessage.length < 4) {
+                growl.info('Meldingen må være lenger enn 4 tegn.')
+                return
+            }
+
+            MessagesService.newMessage($scope.context.newMessage, $scope.context.recipientid, $scope.context.chatid).then(function (res) {
                 if (res.data.success) {
                     reload()
                 } else {
