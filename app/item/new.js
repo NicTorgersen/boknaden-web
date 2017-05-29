@@ -38,6 +38,14 @@
 
         $scope.test = function (item) { console.log(item) }
 
+        $scope.verifiedLength = function (val, len) {
+            if (val.toString().length >= len) {
+                return false
+            }
+
+            return true
+        }
+
         $scope.isValid = function () {
             if ($scope.flyer.adname.length > 4 &&
                 ($scope.flyer.course && $scope.flyer.course.hasOwnProperty('courseid')) &&

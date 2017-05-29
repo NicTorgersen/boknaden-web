@@ -50,7 +50,8 @@
                             <div class="form-group" ng-show="item.isBook">
                                 <label for="item-isbn">ISBN <a href ng-click="showISBNHelpText = !showISBNHelpText">?</a></label>
                                 <p class="bg-info" ng-show="showISBNHelpText">ISBN er en 10 eller 13-sifret kode som finnes på baksiden eller første siden i en bok. Eksempel: 978-82-450-0128-0. Du trenger ikke å fylle inn bindestreker.</p>
-                                <input type="number" id="item-isbn" ng-model="item.isbn" class="form-control">
+                                <input type="number" id="item-isbn" ng-model="item.isbn" ng-disabled="!verifiedLength(item.isbn, 13)" class="form-control">
+                                <button type="button" ng-if="!verifiedLength(item.isbn, 13)" class="btn btn-xs btn-info" ng-click="item.isbn = ''">Nullstill</button>
                             </div>
                             <div class="form-group">
                                 <label for="item-title">Tittel</label>
@@ -70,7 +71,6 @@
                 </uib-tabset>
             </div>
             <button type="button" ng-disabled="!isValid()" ng-click="createAd()" class="btn btn-success pull-left"><i class="fa fa-fw fa-check"></i> Opprett</button>
-            <button type="button" class="btn btn-info pull-right" ng-click="test(flyer)">Test</button>
         </div>
     </div>
 </div>

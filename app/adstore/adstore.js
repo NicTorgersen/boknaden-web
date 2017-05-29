@@ -19,6 +19,10 @@
         $scope.showSpinner = true
         $scope.context = {
             inSearchContext: false,
+            filterParams: {
+                page: 1,
+            },
+            hasNextPage: false
         }
 
         reload()
@@ -31,6 +35,8 @@
             for (var prop in $location.search()) {
                 $location.search(prop, null)
             }
+
+
         }
 
         $scope.activateAdItem = function (flyer, aditem) {
@@ -60,29 +66,43 @@
         }
 
         function reload () {
-            var filterParams = {}
-
             if ($location.search().hasOwnProperty('course')) {
-                filterParams.courseid = $location.search().course
+                $scope.context.filterParams.courseid = $location.search().course
                 $scope.context.inSearchContext = true
             }
 
             if ($location.search().hasOwnProperty('campus')) {
-                filterParams.campusid = $location.search().campus
+                $scope.context.filterParams.campusid = $location.search().campus
                 $scope.context.inSearchContext = true
             }
 
             if ($location.search().hasOwnProperty('university')) {
-                filterParams.universityid = $location.search().university
+                $scope.context.filterParams.universityid = $location.search().university
                 $scope.context.inSearchContext = true
             }
 
-            AdService.getAll(filterParams).then(function (res) {
+            AdService.getAll($scope.context.filterParams).then(function (res) {
                 $scope.showSpinner = false
-                $scope.flyers = res
+                $scope.flyers = res.ads
+                $scope.context.filterParams.page++
+                $scope.context.hasNextPage = res.hasNextPage
             }, function (err) {
                 growl.error(err, {title: 'Error'})
             })
+        }
+
+        $scope.loadMore = function () {
+            if ($scope.flyers.length > 0) {
+                $scope.showSpinner = true
+                AdService.getAll($scope.context.filterParams).then(function (res) {
+                    $scope.flyers = $scope.flyers.concat(res.ads)
+                    if (res.length > 0) {
+                        $scope.context.filterParams.page++
+                        $scope.context.hasNextPage = res.hasNextPage
+                    }
+                    $scope.showSpinner = false
+                })
+            }
         }
 
     }

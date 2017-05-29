@@ -58,11 +58,15 @@
                 method: 'GET',
                 params: params,
             }).then(function (res) {
+
                 for (var i = 0; i<res.data.ads.length; i++) {
                     var obj = { active: false, adItem: {} }
                     res.data.ads[i].selectedAdItem = obj
                 }
-                return res.data.ads
+                return {
+                    ads: res.data.ads,
+                    hasNextPage: res.data.hasNextPage
+                }
             })
         }
 

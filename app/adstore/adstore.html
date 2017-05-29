@@ -50,6 +50,9 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12" ng-if="flyers.length > 0 && context.hasNextPage">
+                <button ng-click="loadMore()" type="button" class="btn btn-block btn-lg btn-success"><i class="fa fa-fw fa-refresh"></i> Last inn flere</button>
+            </div>
         </div>
 
         <div class="clearfix"></div>
