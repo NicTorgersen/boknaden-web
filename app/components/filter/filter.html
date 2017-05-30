@@ -6,7 +6,7 @@
     </div>
     <div class="bn-front-filter-container" ng-class="{'active': show}">
         <ul>
-            <li ng-click="toggleFilterDropdown('university')">Universitet <i class="fa fa-fw fa-caret-down"></i>
+            <!-- <li ng-click="toggleFilterDropdown('university')">Universitet <i class="fa fa-fw fa-caret-down"></i>
                 <ul ng-show="context['university'].active" class="bn-filter-dropdown">
                     <li ng-click="setSearch('university', university.universityid)" ng-repeat="university in context.university.data">{{ university.universityname }}</li>
                 </ul>
@@ -16,7 +16,7 @@
                 <ul ng-show="context['campus'].active" class="bn-filter-dropdown">
                     <li ng-click="setSearch('campus', campus.campusid)" ng-repeat="campus in context.campus.data">{{ campus.campusname }}</li>
                 </ul>
-            </li>
+            </li> -->
 
             <li ng-click="toggleFilterDropdown('course')">Linje <i class="fa fa-fw fa-caret-down"></i>
                 <ul ng-show="context['course'].active" class="bn-filter-dropdown">

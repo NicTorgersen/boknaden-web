@@ -159,6 +159,8 @@ p {
     padding: 0;
     min-width: 100px;
     background: #036185;
+    max-height: 100px;
+    overflow-y: auto;
 }
 .bn-front-filter-container .bn-filter-dropdown li {
     display: block;
