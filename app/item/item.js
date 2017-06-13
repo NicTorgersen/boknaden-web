@@ -56,6 +56,13 @@
                     price += aditems[i].price
                 }
             }
+
+            if (price === 0) {
+                price = 'GRATIS'
+            } else {
+                price = 'Kr ' + price
+            }
+
             return price
         }
 

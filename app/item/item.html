@@ -15,14 +15,14 @@
                 <p>
                     Opprettet av <a ng-href="{{ '/user/' + flyer.user.username }}" >{{ flyer.user.username }}</a> i <a ng-href="{{ '/store?course=' + flyer.course.courseid }}">{{ flyer.course.coursename }}</a> på <a ng-href="{{ '/store?university='+flyer.course.campus.university.universityid }}">{{ flyer.course.campus.university.universityname }}</a> for <span am-time-ago="flyer.createddate"></span>.
                 </p>
-                <h4 class="total-price">Kr <span class="text-boknaden">{{ calculateTotalPrice(flyer.aditems) }}</span></h4>
+                <h4 class="total-price"><span class="text-boknaden">{{ calculateTotalPrice(flyer.aditems) }}</span></h4>
                 <p class="description" ng-if="flyer.text">{{ flyer.text }}</p>
                 <p class="description" ng-if="!flyer.text"><em>Ingen beskrivelse.</em></p>
 
                 <div class="row">
                     <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-4 text-center">
                         <img width="240px" ng-src="{{aditem.image ? aditem.image.imageurl : (aditem.isbn) ? '/assets/images/placeholder-book.png' : '/assets/images/placeholder-object.png'}}" alt="">
-                        <p class="text-center"><span class="text-boknaden">{{ aditem.price }} kr</span></p>
+                        <p class="text-center"><span class="text-boknaden">{{ (aditem.price < 1) ? 'GRATIS' : aditem.price + ' kr' }}</span></p>
                         <h3 class="text-center">{{ aditem.text }}</h3>
                         <em class="text-center" ng-if="aditem.isbn">isbn {{ aditem.isbn }}</em>
                         <p>{{ aditem.description }}</p>
