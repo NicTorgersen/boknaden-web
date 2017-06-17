@@ -18,16 +18,6 @@
                 <h4 class="total-price"><span class="text-boknaden">{{ calculateTotalPrice(flyer.aditems) }}</span></h4>
                 <p class="description" ng-if="flyer.text">{{ flyer.text }}</p>
                 <p class="description" ng-if="!flyer.text"><em>Ingen beskrivelse.</em></p>
-
-                <div class="row">
-                    <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-4 text-center">
-                        <img width="240px" ng-src="{{aditem.image ? aditem.image.imageurl : (aditem.isbn) ? '/assets/images/placeholder-book.png' : '/assets/images/placeholder-object.png'}}" alt="">
-                        <p class="text-center"><span class="text-boknaden">{{ (aditem.price < 1) ? 'GRATIS' : aditem.price + ' kr' }}</span></p>
-                        <h3 class="text-center">{{ aditem.text }}</h3>
-                        <em class="text-center" ng-if="aditem.isbn">isbn {{ aditem.isbn }}</em>
-                        <p>{{ aditem.description }}</p>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="col-md-5 flyer-salesman">
@@ -53,6 +43,15 @@
             <div class="flyer-interest" ng-if="flyer.isowner">
                 <p ng-if="isAuthenticated"><a ng-href="{{ '/item/mine?active=' + flyer.adid}}">Dette er din annonse.</a></p>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div ng-repeat="aditem in flyer.aditems" class="flyer-aditem col-md-3 text-center">
+            <img width="240px" ng-src="{{aditem.image ? aditem.image.imageurl : (aditem.isbn) ? '/assets/images/placeholder-book.png' : '/assets/images/placeholder-object.png'}}" alt="">
+            <p class="text-center"><span class="text-boknaden">{{ (aditem.price < 1) ? 'GRATIS' : aditem.price + ' kr' }}</span></p>
+            <h3 class="text-center">{{ aditem.text }}</h3>
+            <em class="text-center" ng-if="aditem.isbn">isbn {{ aditem.isbn }}</em>
+            <p>{{ aditem.description }}</p>
         </div>
     </div>
 </div>

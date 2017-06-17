@@ -335,6 +335,7 @@ p {
 }
 .flyer-aditem {
     margin-top: 20px;
+    min-height: 560px;
 }
 .flyer-aditem h3 {
     margin-top: 5px;
@@ -523,6 +524,18 @@ p {
 .interest-container h3,
 .interest-container p {
     color: #fff;
+}
+.interest-flyer-item {
+
+}
+.interest-flyer-item:hover {
+    cursor: pointer;
+}
+.btn-interest-confirm-selection {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .chat-container {

@@ -9,10 +9,11 @@
             </span>
         </button>
     </div>
-    <div ng-if="allItems.length > 0" class="col-md-4" ng-class="{'bg-success': item.selected}" ng-click="addRemoveSelectedItem(item)" ng-repeat="item in allItems">
-        <p class="text-center text-boknaden">{{ item.price }} kr</p>
-        <h3 class="text-center">{{ item.text }}</h3>
-        <p class="text-center">{{ item.description }}</p>
+    <div ng-if="allItems.length > 0" class="col-md-3 text-center interest-flyer-item" style="min-height: 560px;" ng-class="{'bg-success': item.selected}" ng-click="addRemoveSelectedItem(item)" ng-repeat="item in allItems">
+        <img width="240px" ng-src="{{ item.image.imageurl }}" alt="{{ item.image.title }}">
+        <p class="text-boknaden">{{ item.price }} kr</p>
+        <h3>{{ item.text }}</h3>
+        <p>{{ item.description }}</p>
     </div>
     <div ng-if="!allItems || allItems.length === 0">
         <p>Du kan ikke melde interesse for objekter fra denne annonsen fordi du allerede har gjort det.</p>
