@@ -36,7 +36,7 @@
                 params.type = type
 
                 return $http({
-                    url: apiUrl + '/ads',
+                    url: apiUrl + '/adverts',
                     method: 'GET',
                     params: params,
                     headers: headers
@@ -54,7 +54,7 @@
             params.type = type
 
             return $http({
-                url: apiUrl + '/ads',
+                url: apiUrl + '/adverts',
                 method: 'GET',
                 params: params,
             }).then(function (res) {
@@ -72,7 +72,7 @@
 
         function getAdsForUser () {
             return $http({
-                url: apiUrl + '/ads',
+                url: apiUrl + '/adverts',
                 method: 'GET',
                 params: {
                     userid: AuthService.profile().userid
@@ -95,7 +95,7 @@
 
         function updateAd (ad) {
             return $http({
-                url: apiUrl + '/ads',
+                url: apiUrl + '/adverts',
                 method: 'PUT',
                 params: {}
             })
@@ -103,7 +103,7 @@
 
         function deleteAd (adid) {
             return $http({
-                url: apiUrl + '/ads',
+                url: apiUrl + '/adverts',
                 method: 'DELETE',
                 params: {
                     adid: adid
@@ -116,7 +116,7 @@
 
         function create (flyer) {
             return $http({
-                url: apiUrl + '/ads',
+                url: apiUrl + '/adverts',
                 method: 'POST',
                 data: {
                     token: AuthService.token(),
